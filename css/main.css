@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
 
     position: absolute;
     top: 0;
@@ -45,8 +45,12 @@ body {
 
 .header__menu {
     display: flex;
-    gap: clamp(1rem, 2vw, 3rem);
+    gap: clamp(1.5rem, 2vw, 3rem);
     list-style-type: none;
+}
+
+.header__menu li {
+    transition: transform 0.3s ease;
 }
 
 .header__menu li a {
@@ -55,8 +59,12 @@ body {
     font-size: 1em;
 }
 
+.header__menu li:hover {
+    transform: scale(0.95);
+}
+
 /* Banner inicial */
-.banner{
+.banner {
     width: 100%;
     min-height: 100vh;
     /* Revisar peso de la imagen */
@@ -70,7 +78,8 @@ body {
     padding: 0 0 0 5%;
     overflow: hidden;
 }
-.banner__h1{
+
+.banner__h1 {
     color: var(--white-color);
     font-size: clamp(10em, 25vw, 25em);
     text-align: center;
@@ -91,14 +100,16 @@ body {
     left: 0;
     z-index: -1;
 }
+
 .about__p {
     width: clamp(80%, 60vw, 50%);
     font-size: clamp(1.5em, 3vw, 4em);
     color: var(--white-color);
     text-align: center;
 }
+
 /* Animación de texto - Dentro de la sección sobre mí */
-.movement{
+.movement {
     width: 100%;
     background-color: var(--secondary-color);
     padding: 1.5rem;
@@ -109,9 +120,11 @@ body {
 }
 
 .movement__container {
-    animation: scrollText 20s linear infinite;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
+    white-space: nowrap;
+
+    animation: scrollText 20s linear infinite;
 }
 
 .movement__span {
@@ -124,7 +137,24 @@ body {
     0% {
         transform: translateX(0%);
     }
+
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
+}
+
+/* Sección de servicios */
+.services{
+    width: 100%;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+
+    position: absolute;
+    top: 160vh;
+}
+
+.services__h2 {
+    font-size: clamp(3em, 6vw, 8em);
+    color: var(--secondary-color);
+    text-align: center;
 }
