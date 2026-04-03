@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- 
+Descripción: Este archivo HTML contiene la página principal de la web.
+
+Estructura general:
+- Menú para ordenador
+- Menú para móvil
+- Banner inicial
+- Sección sobre mí
+- Animación de texto
+- Sección de servicios
+- Sección de proyectos
+- Sección de contacto
+- Footer
+-->
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pau Reyes</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="assets/favicon.svg">
+    <link rel='stylesheet' type='text/css' href='css/main.css'>
+    <script src='js/main.js' defer></script>
+
+    <!-- Tipografia link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header - Menú Desktop + Menú Mobile
+         Descripción: 
+         - Menú para mostrar en pantallas de escritorio. 
+         - Menú para mostrar en pantallas móviles. 
+    -->
+    <header class="header">
+        <!-- Menú para pantallas de escritorio -->
+        <a href="index.html" title="Enlace a la página de inicio" aria-label="Enlace a la página de inicio">
+            <img class="header__logo" src="./assets/favicon-blanco.svg" alt="Logo de la empresa">
+        </a>
+
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li><a href="about.html">Sobre mí</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Menú para pantallas móviles -->
+        <!-- <nav class="header__nav--mobile">
+            <ul class="header__menu--mobile"></ul>
+                <li><a href="about.html">Sobre mí</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <!-- Fin del header -->
+
+
+
+    <!-- Banner inicial
+         Descripción: 
+         - Sección de bienvenida.
+    -->
+    <section class="banner">
+        <!-- Título de la sección - Efecto scroll -->
+        <h1 class="banner__h1">bienvenidx</h1>
+    </section>
+    <!-- Fin de la sección -->
+
+
+
+    <!-- Sección sobre mí
+         Descripción: 
+         - Breve descripción personal de la dueña de la web.
+    -->
+    <div class="about">
+        <!-- Texto "sobre mí" -->
+        <p class="about__p">
+            Soy Paula Reyes, diseñadora gráfica y web, apasionada por la comunicación visual y por el diseño de
+            interfaces digitales.
+        </p>
+
+        <div class="movement">
+            <!-- Animación de texto -->
+            <div class="movement__container">
+                <span class="movement__span">¿Quién soy?</span>
+                <span class="movement__span">¿Qué hago?</span>
+                <span class="movement__span">Explora mi universo</span>
+                <span class="movement__span">¿Quién soy?</span>
+                <span class="movement__span">¿Qué hago?</span>
+                <span class="movement__span">Explora mi universo</span>
+                <span class="movement__span">¿Quién soy?</span>
+                <span class="movement__span">¿Qué hago?</span>
+                <span class="movement__span">Explora mi universo</span>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de la sección -->
+
+</body>
+
+</html>

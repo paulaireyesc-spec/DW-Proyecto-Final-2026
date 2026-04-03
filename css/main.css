@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Variables - Custom Properties */
+:root {
+    /* Fuente principal */
+    --main-font-family: 'Bricolage Grotesque', sans-serif;
+    /* Branding - Colores */
+    --primary-color: #008CCA;
+    --secondary-color: #000000;
+    --complementary-color: #EAE5C8;
+    --white-color: #FFFFFF;
+    --grey-color: #F5F5F5;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+body {
+    font-family: var(--main-font-family);
+}
+
+
+/* Header - Menú desktop */
+.header {
+    width: 100%;
+    /* background-color: var(--grey-color);
+    backdrop-filter: blur(10px); */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header__logo {
+    width: 20%;
+}
+
+.header__menu {
+    display: flex;
+    gap: clamp(1rem, 2vw, 3rem);
+    list-style-type: none;
+}
+
+.header__menu li a {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1em;
+}
+
+/* Banner inicial */
+.banner{
+    width: 100%;
+    min-height: 100vh;
+    /* Revisar peso de la imagen */
+    background-image: url('../assets/banner-inicio-transparente.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    padding: 0 0 0 5%;
+    overflow: hidden;
+}
+.banner__h1{
+    color: var(--white-color);
+    font-size: clamp(10em, 25vw, 25em);
+    text-align: center;
+}
+
+/* Sección sobre mí */
+.about {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 60vh;
+    left: 0;
+    z-index: -1;
+}
+.about__p {
+    width: clamp(80%, 60vw, 50%);
+    font-size: clamp(1.5em, 3vw, 4em);
+    color: var(--white-color);
+    text-align: center;
+}
+/* Animación de texto - Dentro de la sección sobre mí */
+.movement{
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.movement__container {
+    animation: scrollText 20s linear infinite;
+    display: flex;
+    gap: 1rem;
+}
+
+.movement__span {
+    color: var(--white-color);
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
