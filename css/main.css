@@ -15,6 +15,25 @@
     --complementary-color: #EAE5C8;
     --white-color: #FFFFFF;
     --grey-color: #F5F5F5;
+    --dark-blue: #016995;
+    /* Bordes */
+    --border-radius-btn: 100px;
+    --border-radius-elementos: 20px;
+}
+
+/* Estilos GENERALES para botones */
+.btn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: clamp(0.8em, 1.5vw, 3em);
+    padding: 0.5rem 2rem;
+    border-radius: var(--border-radius-btn);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--dark-blue);
 }
 
 /* --------------------------------------------------------------------------------- */
@@ -55,7 +74,7 @@ body {
 
 .header__menu li a {
     text-decoration: none;
-    color: var(--white-color);
+    color: var(--secondary-color);
     font-size: 1em;
 }
 
@@ -94,11 +113,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    position: absolute;
-    top: 60vh;
-    left: 0;
+    margin: -50vh 0 0;
     z-index: -1;
+    position: relative;
 }
 
 .about__p {
@@ -119,15 +136,25 @@ body {
     overflow: hidden;
 }
 
+.movement--blue {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+
 .movement__container {
     display: flex;
     gap: 3rem;
-    white-space: nowrap;
 
     animation: scrollText 20s linear infinite;
 }
 
 .movement__span {
+    white-space: nowrap;
     color: var(--white-color);
     font-size: 1.5em;
     font-weight: 200;
@@ -144,17 +171,253 @@ body {
 }
 
 /* Sección de servicios */
-.services{
+.services,
+.projects {
     width: 100%;
     min-height: 100vh;
     padding: 4rem 2rem;
 
-    position: absolute;
-    top: 160vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-.services__h2 {
+.services__h2,
+.projects__h2 {
     font-size: clamp(3em, 6vw, 8em);
     color: var(--secondary-color);
     text-align: center;
+}
+
+.services__card {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__category,
+.preview__category,
+/* Comparte estilos con los datos de los proyectos destacados */
+.preview__year {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    font-size: clamp(0.8em, 1vw, 2em);
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-btn);
+}
+
+.card__img {
+    background-color: var(--grey-color);
+    width: clamp(200px, 20vw, 300px);
+    height: clamp(200px, 20vw, 300px);
+    border-radius: var(--border-radius-elementos);
+}
+
+/* Sección de proyectos */
+.projects {
+    background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
+}
+
+.projects__h2 {
+    position: sticky;
+    top: 5vh;
+    color: var(--white-color);
+}
+
+.projects__preview {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.preview {
+    width: clamp(300px, 60vw, 1000px);
+    min-height: clamp(300px, 30vw, 400px);
+    background-color: var(--grey-color);
+    border-radius: var(--border-radius-elementos);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 20vh;
+}
+
+.preview:nth-child(odd) {
+    margin: 0 0 0 -10vh;
+}
+
+.preview:nth-child(even) {
+    margin: 0 -10vh 0 0;
+}
+
+.preview:nth-child(2) {
+    top: 25vh;
+}
+
+.preview:nth-child(3) {
+    top: 30vh;
+}
+
+.preview:nth-child(4) {
+    top: 45vh;
+}
+
+.preview__data {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.preview__h2 {
+    font-size: clamp(2em, 3.5vw, 4em);
+}
+
+.preview--disabled {
+    transform: scale(0.95);
+    filter: blur(2px) brightness(0.9);
+}
+
+/* Sección de contacto */
+.contact--wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 14rem 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    width: clamp(50%, 60vw, 80%);
+    transform: rotate(15deg);
+}
+
+.contact__picture {
+    position: relative;
+}
+
+.contact__picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-elementos);
+}
+
+.contact__btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 8rem 2rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+
+    position: relative;
+}
+
+/* Datos del footer
+- Redes sociales
+- Menu
+- Contacto 
+*/
+.footer__info {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__socials svg {
+    width: 20px;
+    height: 20px;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-btn);
+    fill: var(--white-color);
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.footer__socials svg:hover {
+    transform: scale(1.1);
+}
+
+.footer__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 1.5rem;
+    color: var(--dark-blue);
+}
+
+.data__menu {
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+.data__menu li {
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.data__menu li:hover {
+    transform: scale(0.95);
+}
+
+.data__menu li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1em;
+}
+
+.data__contact {
+    font-size: 0.9em;
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__title {
+    width: 100%;
+    color: var(--primary-color);
+    text-align: center;
+
+}
+
+.footer__h2 {
+    font-size: clamp(6em, 15vw, 15em);
 }
