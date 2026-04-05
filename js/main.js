@@ -62,11 +62,32 @@ const mobileMenu = document.querySelector('.header__menu--mobile');
 const header = document.querySelector('.header');
 
 menuIcon.addEventListener('click', () => {
-    if (mobileMenu.classList.contains('header__menu--active')) {
-        mobileMenu.classList.remove('header__menu--active');
-        header.classList.remove('header--mobile');
-    } else {
-        mobileMenu.classList.add('header__menu--active');
-        header.classList.add('header--mobile');
-    }
+      if (mobileMenu.classList.contains('header__menu--active')) {
+            mobileMenu.classList.remove('header__menu--active');
+            header.classList.remove('header--mobile');
+      } else {
+            mobileMenu.classList.add('header__menu--active');
+            header.classList.add('header--mobile');
+      }
+});
+
+
+/* => Interacción D Scroll del título de bienvenida
+      Descripción: Al hacer scroll hacia abajo, el título de bienvenida se mueve hacia la derecha, dejando ver todo el mensaje.
+
+      ACLARACIÓN: Ayuda de ChatGPT para resolver cómo definir la dirección del scroll.
+*/
+const bannerTitle = document.querySelector('.banner__h1');
+let lastScroll = window.scrollY;
+
+window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScroll) {
+            bannerTitle.style.transform = `translateX(${currentScroll * -0.5}px)`; // Mueve el título hacia la izquierda
+      } else if (currentScroll < lastScroll) {
+            bannerTitle.style.transform = `translateX(${-currentScroll * 0.5}px)`; // Mueve el título hacia la derecha
+      }
+
+      lastScroll = currentScroll;
 });
