@@ -19,13 +19,18 @@
     /* Bordes */
     --border-radius-btn: 100px;
     --border-radius-elementos: 20px;
+    /* Textos */
+    --text-heading-size: clamp(3em, 6vw, 8em);
+    --text-subtitle-size: clamp(1.5em, 3vw, 4em);
+    --text-main-size: clamp(1em, 1.5vw, 2.5em);
+    --btn-main-size: clamp(0.6em, 1vw, 2em);
 }
 
 /* Estilos GENERALES para botones */
 .btn {
     background-color: var(--primary-color);
     color: var(--white-color);
-    font-size: clamp(0.8em, 1.5vw, 3em);
+    font-size: var(--btn-main-size);
     padding: 0.5rem 2rem;
     border-radius: var(--border-radius-btn);
     text-decoration: none;
@@ -36,14 +41,50 @@
     background-color: var(--dark-blue);
 }
 
-/* --------------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .btn {
+        /* Reducción de padding en pantallas pequeñas */
+        padding: 0.4rem 1.2rem;
+    }
+}
+
+@media (min-width: 2400px) {
+    .btn {
+        /* Aumento de padding en pantallas grandes */
+        padding: 1.3rem 3.5rem;
+    }
+}
 
 body {
     font-family: var(--main-font-family);
+    font-size: var(--text-main-size);
 }
 
+/* --------------------------------------------------------------------------------- */
+/*  main.css
+    Estructura:
+        - index.html
+            - Header
+            - Banner inicial
+            - Sección sobre mí
+                - Animación de texto
+            - Sección de servicios (comparte estilos con la sección de proyectos)
+            - Sección de proyectos
+            - Sección de contacto
+            - Footer
 
-/* Header - Menú desktop */
+        - about.html
+            - Banner inicial
+            - Sección de estudios
+            - Sección de experiencia laboral
+            - CTA para contactar y/o ver proyectos
+*/
+/* --------------------------------------------------------------------------------- */
+
+/* INICIO DE ESTILOS PARA INDEX.HTML */
+/* ---- Header - Menú desktop ----
+        Descripción: Estilos para el header de escritorio
+*/
 .header {
     width: 100%;
     /* background-color: #008dca16; */
@@ -84,13 +125,17 @@ body {
     transform: scale(0.95);
 }
 
-/* Header - Menú mobile */
+/* ---- Header - Menú mobile ----
+        Descripción: Estilos para el header de pantallas pequeñas
+*/
 .header__nav--mobile {
     display: none;
     list-style: none;
 }
 
 @media (max-width: 768px) {
+
+    /* Activación del menú mobile */
     .header__nav {
         display: none;
     }
@@ -164,7 +209,12 @@ body {
     }
 }
 
-/* Banner inicial */
+/* ---- Banner inicial ----
+        Descripción: Estilos para el banner de bienvenida
+        Estructura:
+            - banner
+            - banner__h1
+*/
 .banner {
     width: 100%;
     min-height: 100vh;
@@ -176,11 +226,11 @@ body {
     justify-content: start;
     align-items: center;
 
-    padding: 0 0 0 5%;
     overflow: hidden;
 }
 
 .banner__h1 {
+    padding: 0 0 0 5%;
     color: var(--white-color);
     font-size: clamp(10em, 25vw, 25em);
     text-align: center;
@@ -192,7 +242,17 @@ body {
     }
 }
 
-/* Sección sobre mí */
+/* ---- Sección sobre mí ----
+        Descripción: Estilos para el texto de presentación y para el texto animado
+        Estructura:
+            - about
+            - about__p
+            - movement (animación de texto)
+                - movement--blue (animación de texto - fondo azul)
+                - movement__container (contenedor de los spans animados)
+                - movement__span (spans individuales para animar)
+            - animación de texto: scrollText
+*/
 .about {
     width: 100%;
     min-height: 100vh;
@@ -208,7 +268,7 @@ body {
 
 .about__p {
     width: clamp(80%, 60vw, 50%);
-    font-size: clamp(1.5em, 3vw, 4em);
+    font-size: var(--text-subtitle-size);
     color: var(--white-color);
     text-align: center;
 }
@@ -258,8 +318,18 @@ body {
     }
 }
 
-/* Sección de servicios */
-.services {
+/* ---- Sección de servicios ----
+        Descripción: Estilos para la sección de servicios, que comparte estilos con la sección de proyectos.
+        Estructura:
+            - services
+            - services__h2 (comparte estilos con projects__h2)
+            - services__card (contenedor de los diferentes servicios)
+            - card (estilos generales para cada servicio)
+            - card__category (estilos para la categoría de cada servicio)
+            - card__img (estilos para la imagen de cada servicio)
+*/
+.services,
+.studies {
     width: 100%;
     padding: 10rem 2rem;
 
@@ -271,9 +341,11 @@ body {
 }
 
 .services__h2,
-.projects__h2 {
-    /* Comparte estilos con la sección de proyectos */
-    font-size: clamp(3em, 6vw, 8em);
+.projects__h2,
+/* Comparte estilos con la sección de proyectos */
+.experience__h2 {
+    /* Comparte estilos con la sección de experiencias de about.html */
+    font-size: var(--text-heading-size);
     color: var(--secondary-color);
     text-align: center;
 }
@@ -301,7 +373,7 @@ body {
 .preview__year {
     background-color: var(--secondary-color);
     color: var(--white-color);
-    font-size: clamp(0.8em, 1vw, 2em);
+    font-size: var(--btn-main-size);
     padding: 0.5rem 1.5rem;
     border-radius: var(--border-radius-btn);
 }
@@ -310,14 +382,31 @@ body {
     background-color: var(--grey-color);
     width: clamp(200px, 20vw, 600px);
     height: clamp(200px, 20vw, 600px);
+}
+
+.card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: var(--border-radius-elementos);
 }
 
-/* Sección de proyectos */
+/* ---- Sección de proyectos ----
+        Descripción: Estilos para la sección de proyectos destacados.
+        Estructura:
+            - projects
+            - projects__h2
+            - projects__preview (contenedor de los proyectos destacados)
+            - preview (estilos generales para cada proyecto)
+            - preview__data (contenedor de los datos de cada proyecto)
+            - preview__h2 (estilos para el título de cada proyecto)
+            - preview--disabled (estilo para javascript para proyectos que quedan detrás de otros)
+            - preview--opacity (estilo inicial para javascript -al hacer scroll aparecen los proyectos-)
+*/
 .projects {
     background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
     padding: 6rem 2rem;
-    
+
     width: 100%;
     min-height: 100vh;
     padding: 6rem 2rem;
@@ -346,7 +435,11 @@ body {
 .preview {
     width: clamp(300px, 60vw, 1000px);
     min-height: clamp(300px, 30vw, 600px);
-    background-color: var(--grey-color);
+    /* background-color: var(--grey-color); */
+    background-image: url(../assets/imagen-de-prueba.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: var(--border-radius-elementos);
     padding: 2rem;
 
@@ -365,14 +458,17 @@ body {
 }
 
 .preview:nth-child(odd) {
+    /* Cambio de margen para proyectos impares (hacia la izquierda) */
     margin: 0 0 0 -10vh;
 }
 
 .preview:nth-child(even) {
+    /* Cambio de margen para proyectos pares (hacia la derecha) */
     margin: 0 -10vh 0 0;
 }
 
 .preview:nth-child(2) {
+    /* Cambio en el punto de sticky para que no se solapen completamente entre sí */
     top: 25vh;
 }
 
@@ -415,8 +511,16 @@ body {
     }
 }
 
-/* Sección de contacto */
-.contact__wrapper {
+/* ---- Sección de contacto ----
+        Descripción: Estilos para la sección de contacto (se repite en about.html como CTA para ver proyectos).
+        Estructura:
+            - paper__wrapper (para recortar la imagen que salga del degradado de la sección de proyectos)
+            - paper (estilos generales para la sección de contacto)
+            - paper__picture 
+            - paper__picture img (estilos para la imagen de contacto)
+            - paper__btn
+*/
+.paper__wrapper {
     overflow: hidden;
     width: 100%;
     padding: 14rem 0;
@@ -426,23 +530,23 @@ body {
     align-items: center;
 }
 
-.contact {
+.paper {
     width: clamp(50%, 60vw, 80%);
     transform: rotate(15deg);
 }
 
-.contact__picture {
+.paper__picture {
     position: relative;
 }
 
-.contact__picture img {
+.paper__picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius-elementos);
 }
 
-.contact__btn {
+.paper__btn {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -450,11 +554,11 @@ body {
 }
 
 @media (max-width: 768px) {
-    .contact__wrapper {
+    .paper__wrapper {
         padding: 4rem 0;
     }
 
-    .contact {
+    .paper {
         width: 90%;
         transform: rotate(10deg);
     }
@@ -462,14 +566,27 @@ body {
 
 
 @media (min-width: 2400px) {
-    .contact__wrapper {
+    .paper__wrapper {
+        /* Aumenta el espacio entre los proyectos y el contacto en pantallas grandes */
         padding: 20rem 0;
         margin: 10rem 0 0;
     }
 
 }
 
-/* Footer */
+/* ---- Footer ----
+        Descripción: Estilos para el footer.
+        Estructura:
+            - footer
+            - footer__info (contenedor redes sociales, menú y datos de contacto)
+                - footer__socials (contenedor de las redes sociales)
+                    - social (estilos para los iconos de las redes sociales)
+                - footer__menu 
+                - footer__contact
+            - footer__title (estilos para el título y derechos de autor del footer)
+                - footer__h2
+*/
+
 .footer {
     width: 100%;
     padding: 8rem 2rem 2rem;
@@ -483,12 +600,6 @@ body {
     position: relative;
 }
 
-/* Datos del footer
-- Redes sociales
-- Menu
-- Contacto 
-*/
-
 .footer__info {
     display: flex;
     flex-direction: column;
@@ -496,6 +607,7 @@ body {
     gap: 3rem;
     justify-content: space-around;
     align-items: center;
+    color: var(--primary-color);
 }
 
 .footer__socials {
@@ -503,7 +615,7 @@ body {
     gap: 1rem;
 }
 
-.socials {
+.social {
     width: min(40px, 8vw);
     height: min(40px, 8vw);
     padding: 0.5rem;
@@ -513,17 +625,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-.socials:hover {
+.social:hover {
     transform: scale(1.1);
-}
-
-.footer__data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    color: var(--primary-color);
 }
 
 .footer__menu {
@@ -568,3 +671,157 @@ body {
 .footer__h2 {
     font-size: clamp(4em, 15vw, 15em);
 }
+
+@media (min-width: 1400px) {
+    .footer {
+        padding: 16rem 2rem 4rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .social {
+        width: min(80px, 20vw);
+        height: min(80px, 20vw);
+        padding: 1.2rem;
+    }
+}
+
+/* FIN DE ESTILOS PARA INDEX.HTML */
+
+
+/* INICIO DE ESTILOS PARA ABOUT.HTML */
+/* ---- Banner inicial ----
+        Descripción: Estilos para el banner inicial de la página.
+        Estructura:
+            - banner--change-background (modificador para cambiar la imagen de fondo del banner)
+*/
+.banner--change-background {
+    background-image: url('../assets/about.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---- Sección de estudios ----
+        Descripción: Estilos para la sección de estudios.
+        Estructura:
+            - studies (comparte estilos con la sección de servicios de index.html)
+            - studies__p
+            - studies__logos (contenedor de los logos de las instituciones educativas)
+            - studies__logo
+*/
+.studies {
+    gap: 4rem;
+}
+
+.studies__p {
+    text-align: center;
+    width: clamp(30%, 60vw, 60%);
+    font-size: clamp(1em, 2vw, 2.5em);
+}
+
+.studies__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.studies__logo {
+    width: clamp(200px, 15vw, 400px);
+    height: auto;
+}
+
+/* ---- Sección de experiencia laboral ----
+        Descripción: Estilos para la sección de experiencia laboral.
+        Estructura:
+            - experience
+            - experience__h2 (comparte estilos con projects__h2 de index.html)
+            - experience__container (contenedor de los bloques de experiencia)
+            - experience__info (estilos generales para cada bloque de experiencia)
+            - experience__h3
+            - experience__span (descripción de cada experiencia laboral)
+            - experience__clients (lista de clientes)
+            - CTA para ver proyectos
+                - .paper__btn--izq (modificador para el botón en la imagen del papel -estilos originales en la sección de proyectos de index.html-)
+            
+*/
+.experience {
+    width: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
+    color: var(--white-color);
+    padding: 6rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience__h2 {
+    color: var(--white-color);
+}
+
+.experience__container {
+    width: clamp(50%, 60vw, 80%);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: clamp(2rem, 5vw, 6rem) 0;
+}
+
+.experience__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience__h3 {
+    font-size: clamp(1.5em, 2vw, 3em);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.experience__h3::before {
+    /* Inserta un icono de flecha antes del título */
+    content: url(../assets/arrow-white.svg);
+    display: inline-block;
+    width: clamp(1.5em, 2vw, 3em);
+}
+
+.experience__span {
+    font-weight: 300;
+    margin: 0 0 1.2rem;
+}
+
+.experience__clients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0 0 2rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.paper__btn--izq {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    transform: translate(-20%, -80%);
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .paper__btn--izq {
+        top: 80%;
+        left: 15%;
+        transform: translate(-15%, -80%);
+    }
+}
+
+/* FIN DE ESTILOS PARA ABOUT.HTML */

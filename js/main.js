@@ -6,6 +6,7 @@
 const projectPreview = document.querySelectorAll('.preview');
 const projectTitle = document.querySelector('.projects__h2');
 
+if (projectTitle) {
 window.addEventListener('scroll', () => {
       // Obtenemos la posición del último proyecto
       const posicionScroll = projectPreview[3].getBoundingClientRect();
@@ -17,6 +18,7 @@ window.addEventListener('scroll', () => {
             projectTitle.style.opacity = '1';
       }
 });
+}
 
 /* => Interacción B Sección de proyectos
       Descripción: Al hacer scroll, los proyectos que no tienen el foco cambian de estilo
@@ -27,6 +29,7 @@ window.addEventListener('scroll', () => {
 */
 const previews = [...document.querySelectorAll(".preview")];
 
+if (previews) {
 // Función para actualizar el estilo de las previews según su posición entre sí
 function updatePreview() {
       previews.forEach((preview) => {
@@ -53,6 +56,7 @@ window.addEventListener("scroll", updatePreview); // Actualiza el estilo según 
 window.addEventListener("resize", updatePreview); // Actualiza el estilo según el cambio de tamaño de la ventana
 
 updatePreview();
+}
 
 /* => Interacción C Menú móvil
       Descripción: Al hacer click en el icono del menú, se muestra el menú desplegable
@@ -80,6 +84,7 @@ menuIcon.addEventListener('click', () => {
 const bannerTitle = document.querySelector('.banner__h1');
 let lastScroll = window.scrollY;
 
+if (bannerTitle) {
 window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
 
@@ -91,3 +96,4 @@ window.addEventListener('scroll', () => {
 
       lastScroll = currentScroll;
 });
+}
