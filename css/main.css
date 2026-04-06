@@ -704,6 +704,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative; /* Para colocar la animación de texto con respecto al banner */
 }
 
 /* ---- Sección de estudios ----
@@ -816,7 +818,7 @@ body {
     transform: translate(-20%, -80%);
 }
 
-@media (min-width: 768px) and (max-width: 900px) {
+@media (min-width: 768px) and (max-width: 1000px) {
     .paper__btn--izq {
         top: 80%;
         left: 15%;
@@ -824,4 +826,11 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .paper__btn--izq {
+        top: 80%;
+        left: 10%;
+        transform: translate(-15%, -80%);
+    }
+}
 /* FIN DE ESTILOS PARA ABOUT.HTML */
