@@ -98,6 +98,8 @@ body {
     top: 0;
     left: 0;
 
+    z-index: 3;
+
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -141,7 +143,7 @@ body {
     }
 
     .header--mobile {
-        background-color: #ffffffce;
+        background-color: var(--primary-color);
     }
 
     .header__nav--mobile {
@@ -695,7 +697,7 @@ body {
         Estructura:
             - banner--change-background (modificador para cambiar la imagen de fondo del banner)
 */
-.banner--change-background {
+.banner--about {
     background-image: url('../assets/about.png');
     background-size: cover;
     background-position: center;
@@ -705,7 +707,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    position: relative; /* Para colocar la animación de texto con respecto al banner */
+    position: relative;
+    /* Para colocar la animación de texto con respecto al banner */
 }
 
 /* ---- Sección de estudios ----
@@ -833,4 +836,139 @@ body {
         transform: translate(-15%, -80%);
     }
 }
+
 /* FIN DE ESTILOS PARA ABOUT.HTML */
+
+
+
+/* INICIO DE ESTILOS PARA SERVICES.HTML */
+
+/* ---- Banner inicial ----
+        Descripción: Estilos para el banner inicial de la página.
+*/
+.banner--services {
+    background-color: var(--primary-color);
+}
+
+/* ---- Sección de servicios ----
+        Descripción: Estilos para la sección explicativa de los servicios ofrecidos.
+        Estructura:
+            - services (comparte estilos con la sección de estudios de about.html)
+            - services--secondary (modificador para alinear el contenido a la izquierda y aumentar el padding)
+            - services__item (estilos generales para cada servicio)
+            - services__picture (contenedor de la imagen de cada servicio)
+            - services__img (estilos para la imagen de cada servicio)
+*/
+
+.services--secondary {
+    /* Edita el estilo compartido en el index.html */
+    gap: clamp(4rem, 8vw, 10rem);
+    align-items: start;
+    padding: 8rem clamp(4rem, 10vw, 6rem);
+}
+
+.services__item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.services--secondary .services__h2 {
+    text-align: left;
+}
+
+.services__picture {
+    width: 100%;
+    height: clamp(200px, 20vw, 400px);
+    background-color: var(--grey-color);
+    border-radius: var(--border-radius-elementos);
+    margin: 2.5rem 0 0;
+    overflow: hidden;
+}
+
+.services__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-elementos);
+    transition: transform 1s ease;
+}
+
+.services__img:hover {
+    transform: scale(1.05);
+}
+
+@media (min-width: 1500px) {
+    .services--secondary {
+        /* Padding y espaciado aumentado en pantallas grandes */
+        padding: 12rem;
+        gap: 15rem;
+    }
+}
+
+/* ---- Sección de contacto ----
+        Descripción: Estilos para el CTA de contacto al final de la página.
+        Estructura:
+            - banner--contact (modificador para el banner de contacto -se repite en about.html como CTA para contactar-)
+            - banner__h2
+            - banner__p 
+            - btn--secondary (modificador para el botón del CTA de contacto -estilos originales en la sección de proyectos de index.html-)
+*/
+.banner--contact {
+    background-image: none;
+    background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
+    padding: 8rem 2rem;
+
+    flex-direction: column;
+    justify-content: center;
+
+    max-height: 50vh;
+}
+
+.banner--contact .banner__h2 {
+    color: var(--white-color);
+    font-size: var(--text-heading-size);
+    text-align: center;
+}
+
+.banner--contact .banner__p {
+    color: var(--white-color);
+    font-size: var(--text-subtitle-size);
+    margin: 0 0 4rem;
+    text-align: center;
+}
+
+.banner__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.btn--secondary {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+}
+
+
+.btn--secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.banner__container .btn--secondary:nth-child(1) {
+    /* Botón de contacto con modificiaciones estéticas */
+    background-color: #ffffff15;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+}
+
+.banner__container .btn--secondary:nth-child(1):hover {
+    /* Botón de contacto con modificiaciones estéticas */
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--white-color);
+}
+
+/* FIN DE ESTILOS PARA SERVICES.HTML */
