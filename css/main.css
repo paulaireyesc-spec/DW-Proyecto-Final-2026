@@ -873,6 +873,7 @@ body {
 */
 .banner--services {
     background-color: var(--primary-color);
+    position: relative; /* Para colocar la animación de texto con respecto al banner */
 }
 
 /* ---- Sección de servicios ----
