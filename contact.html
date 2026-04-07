@@ -105,6 +105,8 @@ Estructura general:
         <!-- Banner inicial
          Descripción: Sección de bienvenida.
          Estructura:
+            - Título de la sección con efecto scroll
+            - Animación de texto con efecto scroll
         -->
         <section class="banner banner--services">
             <!-- Título de la sección - Efecto scroll -->
@@ -154,6 +156,72 @@ Estructura general:
             </div>
         </section>
         <!-- Fin de la sección -->
+
+
+        <!-- Formulario de contacto
+         Descripción: Texto de introducción al formulario de contacto y formulario.
+         Estructura:
+            - Texto de introducción
+            - Formulario de contacto
+        -->
+        <div class="contact">
+            <div class="contact__introduction">
+                <!-- Texto de introducción -->
+                <p class="contact__p">Si te interesa trabajar juntxs, no dudes en ponerte en contacto conmigo a través
+                    de este formulario.</p>
+            </div>
+            <form class="contact__form" action="#" method="post" enctype="multipart/form-data">
+                <!-- Campos del formulario -->
+                <label for="name">Nombre*</label>
+                <input type="text" id="name" name="name" placeholder="Escribe tu nombre completo..." required>
+
+                <label for="email">Correo electrónico*</label>
+                <input type="email" id="email" name="email" placeholder="Escribe tu correo electrónico..." required>
+
+                <label for="message">Mensaje*</label>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+
+                <label for="file">Imágenes de referencia:</label>
+                <input type="file" id="file" name="file[]" accept="image/*" multiple>
+
+                <button type="submit" class="contact__btn btn">Enviar</button>
+            </form>
+        </div>
+        <!-- Fin del formulario -->
+
+        <!-- Mapa de ubicación
+         Descripción: Mapa para mostrar la ubicación de la empresa.
+        -->
+        <div class="map">
+            <div class="movement--up">
+                <!-- Animación de texto -->
+                <div class="movement__container">
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
+                    <span class="movement__span">Puedes encontrarme aquí</span>
+                </div>
+                <!-- Fin de la animación -->
+            </div>
+            <iframe class="map__iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5093.26679148941!2d-15.437955443238238!3d28.144323847583674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095388049acc7%3A0xde81b5fd95e0b033!2sLa%20Puntilla%20(Playa%20de%20Las%20Canteras)!5e0!3m2!1ses!2ses!4v1775567071538!5m2!1ses!2ses"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
 
     </main>
 
