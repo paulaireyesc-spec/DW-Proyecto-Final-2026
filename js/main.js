@@ -97,3 +97,29 @@ window.addEventListener('scroll', () => {
       lastScroll = currentScroll;
 });
 }
+
+
+
+// PROYECTOS (individuales) - Interacciones
+const projectsItem = document.querySelectorAll('.gallery__item');
+const lightboxContainer = document.querySelector('.lightbox');
+const lightboxImage = document.querySelector('.lightbox__img');
+const lightboxPicture = document.querySelector('.lightbox__source');
+const lightboxClose = document.querySelector('.lightbox__close');
+
+if (projectsItem){
+    projectsItem.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            lightboxPicture.srcset = e.target.srcset;
+            lightboxImage.src = e.target.src;
+            setTimeout(() => {
+            lightboxContainer.classList.add('lightbox--active');
+            }, 0);
+        });
+    });
+}
+if (lightboxClose){
+    lightboxClose.addEventListener('click', () => {
+        lightboxContainer.classList.remove('lightbox--active');
+    });
+}

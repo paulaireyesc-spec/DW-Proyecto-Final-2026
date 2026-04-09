@@ -17,7 +17,7 @@ Estructura general:
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Pau Reyes - Sobre mí</title>
+    <title>Pau Reyes</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/png" href="assets/favicon.svg">
     <link rel='stylesheet' type='text/css' href='css/main.css'>
@@ -102,20 +102,20 @@ Estructura general:
     <!-- Fin del header -->
 
     <main>
-
         <!-- Banner inicial
-         Descripción: Presentación de la dueña de la web con una imagen y un texto de bienvenida. 
+         Descripción: Sección introductoria al proyecto.
          Estructura:
-            - Texto de bienvenida
-            - Animación de texto 
+            - Etiquetas de categoría y año
+            - Animación de texto
         -->
-        <div class="banner banner--about">
-            <!-- Texto "sobre mí" -->
-            <p class="banner__p about__p">
-                Soy Paula Reyes, diseñadora gráfica y web, apasionada por la comunicación visual y por el diseño de
-                interfaces digitales.
-            </p>
-
+        <div class="banner banner--hecansa">
+            <!-- Etiquetas de categoría y año -->
+            <ul class="banner__tags">
+                <li class="banner__tag">2025</li>
+                <li class="banner__tag">branding</li>
+                <li class="banner__tag">diseño gráfico</li>
+                <li class="banner__tag">diseño editorial</li>
+            </ul>
             <div class="movement">
                 <!-- Animación de texto -->
                 <div class="movement__container">
@@ -162,66 +162,69 @@ Estructura general:
         </div>
         <!-- Fin de la sección -->
 
-        <!-- Sección de estudios
-         Descripción: Texto sobre la formación académica de la dueña de la web.
+        <!-- Sección descriptiva del proyecto
+         Descripción: Explicación breve del proyecto.
          Estructura:
             - Texto
-            - Logos de las instituciones educativas
         -->
         <div class="studies">
-            <p class="studies__p">Soy diseñadora titulada por la Universidad de La Laguna, y próximamente titulada en
-                Diseño Web y Conceptualización UX UI por CEI</p>
-            <div class="studies__logos">
-                <img class="studies__logo" src="./assets/logo-ull.svg" alt="Logo de la Universidad de La Laguna">
-                <img class="studies__logo" src="./assets/logo-cei.svg" alt="Logo de CEI">
-            </div>
+            <p class="studies__p">Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. </p>
         </div>
         <!-- Fin de la sección -->
 
-        <!-- Sección de experiencia
-         Descripción: Breve muestra de la experiencia laboral de la dueña de la web.
+
+        <!-- Galería de proyecto
+         Descripción: Pequeña galería con imágenes del proyecto.
+         Estructura:
+            - Imágenes
+            - Video
+        -->
+        <div class="gallery">
+            <picture class="gallery__item">
+                <source srcset="./assets/branding-index.webp" type="image/webp">
+                <img class="gallery__img" src="./assets/branding-index.jpg" alt="Imagen del proyecto Hecansa">
+            </picture>
+            <picture class="gallery__item">
+                <source srcset="./assets/imagen-de-prueba.webp" type="image/webp">
+                <img class="gallery__img" src="./assets/imagen-de-prueba.jpg" alt="Imagen del proyecto Hecansa">
+            </picture>
+            <picture class="gallery__item">
+                <source srcset="./assets/imagen-de-prueba.webp" type="image/webp">
+                <img class="gallery__img" src="./assets/imagen-de-prueba.jpg" alt="Imagen del proyecto Hecansa">
+            </picture>
+            <picture class="gallery__item">
+                <source srcset="./assets/imagen-de-prueba.webp" type="image/webp">
+                <img class="gallery__img" src="./assets/imagen-de-prueba.jpg" alt="Imagen del proyecto Hecansa">
+            </picture>
+            <picture class="gallery__item">
+                <source srcset="./assets/imagen-de-prueba.webp" type="image/webp">
+                <img class="gallery__img" src="./assets/imagen-de-prueba.jpg" alt="Imagen del proyecto Hecansa">
+            </picture>
+            <div class="gallery__item">
+                <video src="#" autoplay poster="#">
+                    Tu navegador no admite el elemento <code>video</code>.
+                </video>
+            </div>
+        </div>
+        <!-- Fin de la galería -->
+
+        <!-- Lightbox para galería
+         Descripción: Caja de luz que amplía las imágenes de la galería al hacer clic en ellas.
          Estructura:
             - 
         -->
-        <section class="experience">
-            <h2 class="experience__h2">experiencia</h2>
-            <div class="experience__container">
-                <!-- Bloque de experiencia -->
-                <div class="experience__info">
-                    <h3 class="experience__h3">Diseñadora Investigadora</h3>
-                    <span class="experience__span">Universidad de La Laguna - 2024/2025</span>
-                    <p class="experience__p">He trabajado en 3 proyectos de investigación y diseño dentro de la
-                        Universidad de La Laguna, en los que se han desarrollado auditorías de marca, rediseño de marca,
-                        renovación de branding, diseño editorial, y más.
-
-                        Los clientes fueron:</p>
-                    <div class="experience__clients">
-                        <span>Vías de Trashumancia - Consejo Cultural Europeo</span>
-                        <span>Hecansa - Hoteles Escuela de Canarias</span>
-                        <span>Guía de Isora</span>
-                    </div>
-                </div>
-                <!-- Bloque de experiencia -->
-                <div class="experience__info">
-                    <h3 class="experience__h3">Diseñadora</h3>
-                    <span class="experience__span">Flecher.co - 2024/2025</span>
-                    <p class="experience__p">Trabajé como estudiante de prácticas, y más adelante como empleada
-                        contratada en esta agencia enfocada en la comuniación turística, tratando, sobre todo, el
-                        desarrollo de material gráfico y maquetación de material editorial.
-                    </p>
-                </div>
-            </div>
-            <div class="paper__wrapper">
-            <div class="paper">
-                <picture class="paper__picture">
-                    <source srcset="./assets/papel-about.webp" type="image/webp">
-                    <img src="./assets/papel-about.png" alt="Imagen de contacto">
+        <div class="lightbox">
+            <div>
+                <picture class="lightbox__item">
+                    <source class="lightbox__source" srcset="#" type="image/webp">
+                    <img class="lightbox__img" src="#" alt="Imagen del proyecto Hecansa">
                 </picture>
-                <a class="paper__btn paper__btn--izq btn" href="projects.html">ver proyectos</a>
+                <span class="lightbox__close">&times;</span>
             </div>
         </div>
-        </section>
-        <!-- Fin de la sección -->
+        <!-- Fin del lightbox -->
 
     </main>
 

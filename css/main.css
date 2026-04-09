@@ -221,7 +221,7 @@ body {
     width: 100%;
     min-height: 100vh;
     /* Revisar peso de la imagen */
-    background-image: url('../assets/banner-inicio-transparente.png');
+    background-image: url('../assets/portada.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -481,6 +481,8 @@ body {
     visibility: visible;
     pointer-events: auto;
 
+    color: var(--white-color);
+
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -494,23 +496,37 @@ body {
     margin: 0 -10vh 0 0;
 }
 
+.preview:nth-child(1) {
+    /* Cambio en el punto de sticky para que no se solapen completamente entre sí */
+    background-image: url(../assets/hecansa-index.jpg);
+}
+
 .preview:nth-child(2) {
     /* Cambio en el punto de sticky para que no se solapen completamente entre sí */
     top: 25vh;
+    background-image: url(../assets/telde-index.jpg);
 }
 
 .preview:nth-child(3) {
     top: 30vh;
+    background-image: url(../assets/flor-index.jpg);
 }
 
 .preview:nth-child(4) {
     top: 45vh;
+    background-image: url(../assets/portabono-index.jpg);
 }
 
 .preview__data {
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+}
+
+.preview__category,
+.preview__year {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
 }
 
 .preview__h2 {
@@ -723,7 +739,7 @@ body {
             - banner--change-background (modificador para cambiar la imagen de fondo del banner)
 */
 .banner--about {
-    background-image: url('../assets/about.png');
+    background-image: url('../assets/about.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -873,7 +889,8 @@ body {
 */
 .banner--services {
     background-color: var(--primary-color);
-    position: relative; /* Para colocar la animación de texto con respecto al banner */
+    position: relative;
+    /* Para colocar la animación de texto con respecto al banner */
 }
 
 /* ---- Sección de servicios ----
@@ -906,10 +923,9 @@ body {
 
 .services__picture {
     width: 100%;
-    height: clamp(200px, 20vw, 400px);
+    height: clamp(300px, 25vw, 500px);
     background-color: var(--grey-color);
     border-radius: var(--border-radius-elementos);
-    margin: 2.5rem 0 0;
     overflow: hidden;
 }
 
@@ -923,6 +939,24 @@ body {
 
 .services__img:hover {
     transform: scale(1.05);
+}
+
+.services__includes {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 2.5rem 0 0;
+}
+
+.services__includes li {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    font-size: var(--btn-main-size);
+    padding: 0.5rem 2rem;
+    border-radius: var(--border-radius-btn);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 @media (min-width: 1500px) {
@@ -1091,3 +1125,179 @@ body {
 
 
 /* FIN DE ESTILOS PARA CONTACT.HTML */
+
+
+
+
+/* INICIO DE ESTILOS PARA CADA PROYECTO */
+
+
+
+/* ---- Banner inicial ----
+        Descripción: Estilos para el banner de introducción de cada proyecto.
+        Estructura:
+            - .banner--hecansa (modificador para el banner de cada proyecto, con la imagen de fondo correspondiente)
+            - banner__tags (contenedor de los tags de cada proyecto)
+            - banner__tags li (estilos para cada tag de cada proyecto)
+*/
+.banner--hecansa {
+    background-image: url(../assets/diseno-editorial-index.jpg);
+
+    display: flex;
+    align-items: end;
+
+    position: relative;
+}
+
+.banner__tags {
+    display: flex;
+    flex-direction: column;
+    padding: 0 clamp(4rem, 10vw, 6rem) 8rem;
+    gap: 1rem;
+    list-style: none;
+}
+
+.banner__tags li {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    font-size: var(--btn-main-size);
+    padding: 0.5rem 2rem;
+    border-radius: var(--border-radius-btn);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+.banner__tags li:nth-child(1) {
+    /* Modificador para el primer tag del banner de cada proyecto */
+    background-color: #ffffff15;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+}
+
+/* ---- Galería ----
+        Descripción: Estilos para la galería de cada proyecto.
+        Estructura:
+            - .gallery (contenedor general de la galería de cada proyecto)
+            - gallery__item (estilos generales para los contenedores de cada imagen)
+            - gallery__item img (estilos para las imágenes de cada proyecto)
+*/
+
+.gallery {
+    width: 100%;
+    padding: 0 clamp(4rem, 10vw, 6rem) 8rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.gallery__item {
+    background-color: var(--grey-color);
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: clamp(300px, 30vw, 500px);
+    border-radius: var(--border-radius-elementos);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-elementos);
+    transition: transform 0.5s ease;
+}
+
+.gallery__item img:hover {
+    transform: scale(1.05);
+}
+
+.gallery__item:first-child,
+.gallery__item:last-child {
+    /* Edición del ancho que ocupa el contenedor del primer y último elemento de la galería */
+    grid-column: 1 / 3;
+    aspect-ratio: auto;
+}
+
+
+
+/* ---- Lightbox ----
+        Descripción: Caja de luz para mostrar las imágenes de la galería de cada proyecto.
+        Estructura:
+            - 
+*/
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, visibility 0.3s ease-in-out;
+}
+
+.lightbox div {
+    width: clamp(50%, 50vw, 80%);
+    height: clamp(60%, 50vh, 80%);
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+}
+
+.lightbox__close {
+    color: var(--white-color);
+    font-size: clamp(1.5em, 3vw, 4em);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.lightbox__close:hover {
+    transform: scale(0.95);
+    color: var(--primary-color);
+}
+
+.lightbox__item {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-elementos);
+}
+
+.lightbox__img {
+    width: 100%;
+    /* Este height da problemas */
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--border-radius-elementos);
+}
+
+.lightbox--active {
+    /* Clase para la activación (visibilidad) de los proyectos con JavaScript */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .lightbox div {
+        width: 80%;
+        gap: 1rem;
+        flex-direction: column-reverse;
+        align-items: end;
+    }
+}
+
+/* FIN DE ESTILOS PARA CADA PROYECTO */
