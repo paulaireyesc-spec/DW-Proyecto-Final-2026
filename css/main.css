@@ -1232,6 +1232,13 @@ body {
     list-style: none;
 }
 
+@media (max-width: 700px) {
+    .banner__tags {
+        /* Menor padding en la lista de categorías del banner de cada proyecto */
+        padding: 0 4rem 8rem;
+    }
+}
+
 .banner__tags li {
     background-color: var(--white-color);
     color: var(--secondary-color);
@@ -1335,9 +1342,19 @@ body {
 }
 
 @media (max-width: 600px) {
+    .info--project {
+        padding: 5rem 2rem;
+    }
+
+    .info__p--project {
+        /* Ancho mayor para el párrafo de la descripción en pantallas pequeñas */
+        width: 85%;
+    }
+
     .gallery {
         /* Cambio a una columna en pantallas pequeñas */
         grid-template-columns: 1fr;
+        padding: 0 2rem 4rem;
     }
 
     .gallery__item:first-child,
@@ -1454,6 +1471,13 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 0 8rem;
+}
+
+@media (max-width: 600px) {
+    .external-link__container {
+        /* Menor margen para el botón de enlace externo en pantallas pequeñas */
+        margin: 0 0 4rem;
+    }
 }
 
 /* FIN DE ESTILOS PARA CADA PROYECTO */
