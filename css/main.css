@@ -426,6 +426,7 @@ body {
             - preview (estilos generales para cada proyecto)
             - preview__data (contenedor de los datos de cada proyecto)
             - preview__h2 (estilos para el título de cada proyecto)
+            - preview__btn (estilos para el botón de ver cada proyecto)
             - preview--disabled (estilo para javascript para proyectos que quedan detrás de otros)
             - preview--opacity (estilo inicial para javascript -al hacer scroll aparecen los proyectos-)
 */
@@ -513,7 +514,7 @@ body {
 
 .preview:nth-child(4) {
     top: 45vh;
-    background-image: url(../assets/portabono-index.jpg);
+    background-image: url(../assets/tagora/caja-envio.jpg);
 }
 
 .preview__data {
@@ -530,6 +531,18 @@ body {
 
 .preview__h2 {
     font-size: clamp(2em, 3.5vw, 4em);
+}
+
+.preview__btn {
+    background-color: #ffffff15;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+}
+
+.preview__btn:hover {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--white-color);
 }
 
 .preview--disabled {
@@ -550,6 +563,33 @@ body {
 
     .preview:nth-child(even) {
         margin: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .preview__data {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+}
+
+@media (min-width: 2400px) {
+    .projects__preview {
+        /* Aumento de espacio entre proyectos en pantallas grandes */
+        gap: 12rem;
+    }
+
+    .projects__h2 {
+        /* Aumento del punto de anclaje del título de la sección */
+        top: 12vh;
+    }
+
+    .preview {
+        /* Aumento de tamaño en pantallas grandes */
+        width: clamp(500px, 60vw, 1500px);
+        min-height: clamp(600px, 30vw, 900px);
+        padding: 4rem;
     }
 }
 
@@ -1164,6 +1204,26 @@ body {
     position: relative;
 }
 
+.banner--flor {
+    /* Banner para el proyecto Flor de Luna */
+    background-image: url(../assets/flor-index.jpg);
+
+    display: flex;
+    align-items: end;
+
+    position: relative;
+}
+
+.banner--tagora {
+    /* Banner para el proyecto Tagora */
+    background-image: url(../assets/tagora/caja-envio.jpg);
+
+    display: flex;
+    align-items: end;
+
+    position: relative;
+}
+
 .banner__tags {
     display: flex;
     flex-direction: column;
@@ -1228,7 +1288,6 @@ body {
             - gallery__item (estilos generales para los contenedores de cada imagen)
             - gallery__item img (estilos para las imágenes de cada proyecto)
 */
-
 .gallery {
     width: 100%;
     padding: 0 clamp(4rem, 10vw, 6rem) 8rem;
@@ -1306,7 +1365,12 @@ body {
 /* ---- Lightbox ----
         Descripción: Caja de luz para mostrar las imágenes de la galería de cada proyecto.
         Estructura:
-            - 
+            - lightbox (contenedor general - ocupa toda la pantalla)
+            - lightbox div (contenedor de la imagen y el botón de cierre del lightbox)
+            - lightbox__close (estilos para el botón de cierre del lightbox)
+            - lightbox__item (estilos para el contenedor de la imagen –picture– del lightbox)
+            - lightbox__img (estilos para la imagen –img– del lightbox)
+                - lightbox--active (clase para la activación del lightbox con JavaScript)
 */
 .lightbox {
     position: fixed;
@@ -1378,6 +1442,18 @@ body {
         flex-direction: column-reverse;
         align-items: end;
     }
+}
+
+/* ---- Botón de enlace externo ----
+        Descripción: Estilos para el botón de enlace externo a la página de cada proyecto (si es que el proyecto lo tiene). 
+        Estructura:
+            - external-link__container (contenedor del botón de enlace externo)
+*/
+.external-link__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 8rem;
 }
 
 /* FIN DE ESTILOS PARA CADA PROYECTO */
