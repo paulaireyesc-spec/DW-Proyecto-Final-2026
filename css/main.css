@@ -248,7 +248,7 @@ body {
         Descripción: Estilos para el texto de presentación y para el texto animado
         Estructura:
             - about
-            - about__p
+            - about__p (comparte estilos con el texto del banner inicial de about.html)
             - movement (animación de texto)
                 - movement--blue (animación de texto - fondo azul)
                 - movement--up (animación de texto - mueve la animación a la parte superior del contenedor)
@@ -269,7 +269,11 @@ body {
     position: relative;
 }
 
-.about__p {
+.about__p,
+.banner__p
+
+/* Comparte estilos con about.html (banner de inicio) */
+    {
     width: clamp(80%, 60vw, 50%);
     font-size: var(--text-subtitle-size);
     color: var(--white-color);
@@ -432,7 +436,6 @@ body {
 */
 .projects {
     background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
-    padding: 6rem 2rem;
 
     width: 100%;
     min-height: 100vh;
@@ -933,7 +936,7 @@ body {
 /* ---- Banner inicial ----
         Descripción: Estilos para el banner inicial de la página.
 */
-.banner--services {
+.banner--background {
     background-color: var(--primary-color);
     position: relative;
     /* Para colocar la animación de texto con respecto al banner */
@@ -988,8 +991,10 @@ body {
 }
 
 .services__includes {
+    /* Lista de categorías */
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     list-style: none;
     margin: 2.5rem 0 0;
@@ -1003,6 +1008,13 @@ body {
     border-radius: var(--border-radius-btn);
     text-decoration: none;
     transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .services--secondary {
+        /* Reducción de padding en pantallas pequeñas */
+        padding: 3rem;
+    }
 }
 
 @media (min-width: 1500px) {
@@ -1088,7 +1100,6 @@ body {
         Estructura:
             - contact (contenedor general de la sección de contacto)
             - contact__introduction (estilos para el texto de introducción a la sección de contacto)
-            - contact__p
             - contact__form (estilos para el formulario de contacto)
             - contact__btn (estilos para el botón del formulario de contacto)
 */
@@ -1106,8 +1117,6 @@ body {
     width: clamp(30%, 40vw, 40%);
 }
 
-.contact__p {}
-
 .contact__form {
     width: clamp(60%, 60vw, 70%);
 
@@ -1116,12 +1125,16 @@ body {
     gap: 1rem;
 }
 
-.contact__form input,
-.contact__form textarea {
+.contact__input,
+.contact__textarea {
     background-color: var(--grey-color);
     border-radius: var(--border-radius-elementos);
     padding: 1rem;
     margin: 0 0 1.5rem 0;
+}
+
+.contact__textarea {
+    resize: vertical;
 }
 
 .contact__btn {
@@ -1481,3 +1494,108 @@ body {
 }
 
 /* FIN DE ESTILOS PARA CADA PROYECTO */
+
+
+/* INICIO DE ESTILOS PARA PROJECTS.HTML */
+/* ---- Galería de proyectos ----
+        Descripción: Estilos para la galería general de proyectos.
+        Estructura:
+            - 
+*/
+.projects--gallery {
+    background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
+
+    width: 100%;
+    min-height: 100vh;
+
+    justify-content: start;
+}
+
+.projects--gallery .projects__h2 {
+    position: static;
+    margin: 0 0 2rem;
+}
+
+.projects__container {
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project {
+    width: 100%;
+    height: clamp(300px, 30vw, 500px);
+    border-radius: var(--border-radius-elementos);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 1rem;
+
+    position: relative;
+    color: var(--white-color);
+}
+
+.project__title {
+    font-size: var(--text-subtitle-size);
+    z-index: 2;
+}
+
+.project__description,
+.project__btn {
+    z-index: 2;
+}
+
+.project__btn {
+    background-color: #ffffff15;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    align-self: start;
+}
+
+.project__btn:hover {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--white-color);
+}
+
+.project__picture {
+    background-color: #0b9501;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+
+    filter: brightness(60%);
+
+    border-radius: var(--border-radius-elementos);
+}
+
+.project__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-elementos);
+    transition: transform 0.5s ease;
+}
+
+.project__picture img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 780px) {
+    .projects__container {
+        /* Cambio a una columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FIN DE ESTILOS PARA PROJECTS.HTML */

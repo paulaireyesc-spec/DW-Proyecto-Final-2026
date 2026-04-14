@@ -6,7 +6,7 @@
 const projectPreview = document.querySelectorAll('.preview');
 const projectTitle = document.querySelector('.projects__h2');
 
-if (projectTitle) {
+if (projectPreview == true && projectTitle) {
       window.addEventListener('scroll', () => {
             // Obtenemos la posición del último proyecto
             const posicionScroll = projectPreview[3].getBoundingClientRect();
