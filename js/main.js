@@ -6,7 +6,8 @@
 const projectPreview = document.querySelectorAll('.preview');
 const projectTitle = document.querySelector('.projects__h2');
 
-if (projectPreview == true && projectTitle) {
+// Si el array de proyectos no está vacío, añadimos el evento de scroll
+if (projectPreview.length) {
       window.addEventListener('scroll', () => {
             // Obtenemos la posición del último proyecto
             const posicionScroll = projectPreview[3].getBoundingClientRect();
