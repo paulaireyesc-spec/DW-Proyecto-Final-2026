@@ -18,7 +18,7 @@
     --dark-blue: #016995;
     /* Bordes */
     --border-radius-btn: 100px;
-    --border-radius-elementos: 20px;
+    --border-radius-elementos: 30px;
     /* Textos */
     --text-heading-size: clamp(3em, 6vw, 8em);
     --text-subtitle-size: clamp(1.5em, 3vw, 4em);
@@ -37,7 +37,8 @@
     transition: background-color 0.3s ease;
 }
 
-.btn:hover, .btn:active {
+.btn:hover,
+.btn:active {
     /* Estilos para cuando se pasa el ratón por encima o se hace clic en un botón */
     background-color: var(--dark-blue);
 }
@@ -122,7 +123,7 @@ body {
 .header__menu li a {
     text-decoration: none;
     color: var(--white-color);
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .header__menu li:hover {
@@ -210,6 +211,18 @@ body {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
+    }
+}
+
+@media (min-width: 1500px) {
+    .header {
+        /* Aumento de padding superior e inferior en pantallas grandes */
+        padding: 4rem 2rem;
+    }
+
+    .header__logo {
+        /* Aumento del tamaño del logo en pantallas grandes */
+        width: 25%;
     }
 }
 
@@ -411,7 +424,6 @@ body {
 }
 
 .card__img {
-    background-color: var(--grey-color);
     width: clamp(200px, 20vw, 600px);
     height: clamp(200px, 20vw, 600px);
 }
@@ -605,6 +617,11 @@ body {
         width: clamp(500px, 60vw, 1500px);
         min-height: clamp(600px, 30vw, 900px);
         padding: 4rem;
+    }
+
+    .preview__year,
+    .preview__category {
+        padding: 1.3rem 3.5rem;
     }
 }
 
@@ -1039,6 +1056,7 @@ body {
         /* Reducción de padding en pantallas pequeñas */
         padding: 3rem;
     }
+
     .includeds__item {
         /* Aumento del tamaño de fuente en pantallas pequeñas - Equivale al aumento de fuente en botones */
         font-size: 0.8em;
@@ -1098,7 +1116,8 @@ body {
 }
 
 
-.btn--secondary:hover, .btn--secondary:active {
+.btn--secondary:hover,
+.btn--secondary:active {
     background-color: var(--secondary-color);
     color: var(--white-color);
 }
@@ -1110,7 +1129,8 @@ body {
     border: 1px solid var(--white-color);
 }
 
-.banner__container .btn--secondary:nth-child(1):hover, .banner__container .btn--secondary:nth-child(1):active {
+.banner__container .btn--secondary:nth-child(1):hover,
+.banner__container .btn--secondary:nth-child(1):active {
     /* Botón de contacto con modificiaciones estéticas */
     background-color: var(--white-color);
     color: var(--secondary-color);
@@ -1184,6 +1204,63 @@ body {
         width: 100%;
     }
 }
+
+/* ---- Caja de confirmación ----
+        Descripción: Estilos para el mensaje de confirmación al enviar el formulario de contacto.
+        Estructura:
+            - confirmation (contenedor general de la caja de confirmación)
+            - confirmation__message (estilos para el mensaje de confirmación)
+            - confirmation__btn (estilos para el botón de cerrar la caja de confirmación)
+            - confirmation--active 
+*/
+.confirmation {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.288);
+    backdrop-filter: blur(5px);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation__message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    width: clamp(300px, 50%, 750px);
+    min-height: 12.5rem;
+
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    padding: 4rem;
+    border-radius: var(--border-radius-elementos);
+    text-align: center;
+}
+
+.confirmation__btn {
+    cursor: pointer;
+}
+
+.confirmation--active {
+    /* Estilos para activar la caja de confirmación en JavaScript */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 
 /* ---- Mapa ----
         Descripción: Estilos para el mapa con la ubicación de la empresa.
@@ -1297,6 +1374,7 @@ body {
         /* Menor padding en la lista de categorías del banner de cada proyecto */
         padding: 0 4rem 8rem;
     }
+
     .banner__tag {
         font-size: 0.8em;
     }
@@ -1466,6 +1544,7 @@ body {
 }
 
 .lightbox__close {
+    background-color: transparent;
     color: var(--white-color);
     font-size: clamp(1.5em, 3vw, 4em);
     cursor: pointer;
@@ -1539,8 +1618,8 @@ body {
     background: white;
 
     width: 100%;
-    min-height: 100vh;
-
+    min-height: 50vh;
+    padding: 10rem 2rem;
     justify-content: start;
 }
 
@@ -1590,7 +1669,8 @@ body {
     align-self: start;
 }
 
-.project__btn:hover, .project__btn:active {
+.project__btn:hover,
+.project__btn:active {
     background-color: var(--white-color);
     color: var(--secondary-color);
     border: 1px solid var(--white-color);
@@ -1624,6 +1704,20 @@ body {
     .projects__container {
         /* Cambio a una columna en pantallas pequeñas */
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 2000px) {
+    .projects__container {
+        /* Aumento del gap entre los proyectos en pantallas grandes */
+        gap: 5rem;
+    }
+
+    .project {
+        /* Aumento del tamaño de los proyectos en pantallas grandes */
+        height: clamp(500px, 50vw, 900px);
+        padding: 4rem;
+        gap: 2rem;
     }
 }
 
