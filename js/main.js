@@ -19,6 +19,8 @@
             - Constantes
             - Función
             - Evento de scroll
+
+      ACLARACIÓN: Ayuda de ChatGPT para definir el punto de desvanecimiento del título.
 */
 const projectPreview = document.querySelectorAll('.preview'); // Selecciona el contendor de cada proyecto.
 const projectTitle = document.querySelector('.projects__h2'); // Selecciona el título de la sección de proyectos.
