@@ -5,6 +5,25 @@
     box-sizing: border-box;
 }
 
+/* --------------------------------------------------------------------------------- */
+/*  main.css
+    Estructura:
+    __________________________________________________________________________________
+    - Variables - Custom Properties
+    - Estilos generales para botones
+    - Estilos generales para el body
+    __________________________________________________________________________________
+        - Estilos de la página index.html
+        - Estilos de la página about.html
+        - Estilos de la página services.html
+        - Estilos de la página contact.html
+        - Estilos para las páginas individuales de proyectos
+        - Estilos de la página project.html
+*/
+/* --------------------------------------------------------------------------------- */
+
+
+
 /* Variables - Custom Properties */
 :root {
     /* Fuente principal */
@@ -39,21 +58,17 @@
 
 .btn:hover,
 .btn:active {
-    /* Estilos para cuando se pasa el ratón por encima o se hace clic en un botón */
     background-color: var(--dark-blue);
 }
 
 @media (max-width: 760px) {
     .btn {
-        /* Reducción de padding y aumento de tamaño en pantallas pequeñas */
-        /* padding: 0.5rem 1.5rem; */
         font-size: 0.8em;
     }
 }
 
 @media (min-width: 2400px) {
     .btn {
-        /* Aumento de padding en pantallas grandes */
         padding: 1.3rem 3.5rem;
     }
 }
@@ -63,35 +78,20 @@ body {
     font-size: var(--text-main-size);
 }
 
-/* --------------------------------------------------------------------------------- */
-/*  main.css
-    Estructura:
-        - index.html
-            - Header
-            - Banner inicial
-            - Sección sobre mí
-                - Animación de texto
-            - Sección de servicios (comparte estilos con la sección de proyectos)
-            - Sección de proyectos
-            - Sección de contacto
-            - Footer
 
-        - about.html
-            - Banner inicial
-            - Sección de estudios
-            - Sección de experiencia laboral
-            - CTA para contactar y/o ver proyectos
-*/
-/* --------------------------------------------------------------------------------- */
+/* INICIO DE ESTILOS PARA INDEX.HTML ---------------------- */
 
-/* INICIO DE ESTILOS PARA INDEX.HTML */
 /* ---- Header - Menú desktop ----
-        Descripción: Estilos para el header de escritorio
+        Descripción: Estilos para el header de escritorio.
+        Estructura:
+            - header
+            - header__logo
+            - header__menu
+                - header__menu li
+                    - header__menu li a
 */
 .header {
     width: 100%;
-    /* background-color: #008dca16; */
-    /* backdrop-filter: blur(2px); */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -131,7 +131,16 @@ body {
 }
 
 /* ---- Header - Menú mobile ----
-        Descripción: Estilos para el header de pantallas pequeñas
+        Descripción: Estilos para el header de pantallas pequeñas.
+        Estructura:
+            - header--mobile
+            - header__nav--mobile
+                - header__menu--mobile
+                    - header__menu-icon
+                        - header__menu--mobile ul
+                            - menu-icon__item
+                            - menu-icon__item a
+
 */
 .header__nav--mobile {
     display: none;
@@ -186,7 +195,6 @@ body {
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
-
     .menu-icon__item {
         padding: 1rem;
         transition: transform 0.3s ease;
@@ -215,19 +223,19 @@ body {
 }
 
 @media (min-width: 1500px) {
+
+    /* Ajustes en pantalla grande */
     .header {
-        /* Aumento de padding superior e inferior en pantallas grandes */
         padding: 4rem 2rem;
     }
 
     .header__logo {
-        /* Aumento del tamaño del logo en pantallas grandes */
         width: 25%;
     }
 }
 
 /* ---- Banner inicial ----
-        Descripción: Estilos para el banner de bienvenida
+        Descripción: Estilos para el banner de bienvenida.
         Estructura:
             - banner
             - banner__h1
@@ -235,7 +243,6 @@ body {
 .banner {
     width: 100%;
     min-height: 100vh;
-    /* Revisar peso de la imagen */
     background-image: url('../assets/portada.png');
     background-size: cover;
     background-position: center;
@@ -254,22 +261,24 @@ body {
 }
 
 @media (min-width: 1720px) {
+
+    /* Ajustes en pantalla grande */
     .banner__h1 {
         font-size: clamp(15em, 35vw, 50em);
     }
 }
 
 /* ---- Sección sobre mí ----
-        Descripción: Estilos para el texto de presentación y para el texto animado
+        Descripción: Estilos para el texto de presentación y para el texto animado.
         Estructura:
             - about
             - about__p (comparte estilos con el texto del banner inicial de about.html)
-            - movement (animación de texto)
+            - movement
                 - movement--blue (animación de texto - fondo azul)
                 - movement--up (animación de texto - mueve la animación a la parte superior del contenedor)
-                - movement__container (contenedor de los spans animados)
-                - movement__span (spans individuales para animar)
-            - animación de texto: scrollText
+                - movement__container (contenedor de los textos animados)
+                - movement__span (texto animado individual)
+                - animación de texto: scrollText y scrollText--around
 */
 .about {
     width: 100%;
@@ -285,17 +294,13 @@ body {
 }
 
 .about__p,
-.banner__p
-
-/* Comparte estilos con about.html (banner de inicio) */
-    {
+.banner__p {
     width: clamp(80%, 60vw, 50%);
     font-size: var(--text-subtitle-size);
     color: var(--white-color);
     text-align: center;
 }
 
-/* Animación de texto - Dentro de la sección sobre mí */
 .movement {
     width: 100%;
     background-color: var(--secondary-color);
@@ -327,6 +332,7 @@ body {
 }
 
 .movement--up .movement__container {
+    /* Cambio de animación */
     animation-name: scrollText--around;
 }
 
@@ -334,6 +340,7 @@ body {
     display: flex;
     gap: 3rem;
 
+    /* Animación de texto */
     animation: scrollText 20s linear infinite;
 }
 
@@ -345,6 +352,8 @@ body {
 }
 
 @keyframes scrollText {
+
+    /* Animación de texto base */
     0% {
         transform: translateX(0%);
     }
@@ -355,6 +364,8 @@ body {
 }
 
 @keyframes scrollText--around {
+
+    /* Cambio de sentido de la animación scrollText */
     0% {
         transform: translateX(-50%);
     }
@@ -365,10 +376,11 @@ body {
 }
 
 /* ---- Sección de servicios ----
-        Descripción: Estilos para la sección de servicios, que comparte estilos con la sección de proyectos.
+        Descripción: Estilos para la sección de servicios.
+        Aclaración: Comparte estilos con la sección de proyectos y con la de estudios de about.html
         Estructura:
             - services
-            - services__h2 (comparte estilos con projects__h2)
+            - services__h2
             - services__card (contenedor de los diferentes servicios)
             - card (estilos generales para cada servicio)
             - card__category (estilos para la categoría de cada servicio)
@@ -387,9 +399,11 @@ body {
 
 .services__h2,
 .projects__h2,
-/* Comparte estilos con la sección de proyectos */
-.experience__h2 {
-    /* Comparte estilos con la sección de experiencias de about.html */
+/* Título de la sección de proyectos */
+.experience__h2
+
+/* Título de la sección de experiencias de about.html */
+    {
     font-size: var(--text-heading-size);
     color: var(--secondary-color);
     text-align: center;
@@ -412,10 +426,7 @@ body {
     align-items: center;
 }
 
-.card__category,
-.preview__category,
-/* Comparte estilos con los datos de los proyectos destacados */
-.preview__year {
+.card__category {
     background-color: var(--secondary-color);
     color: var(--white-color);
     font-size: var(--btn-main-size);
@@ -438,9 +449,10 @@ body {
 @media (max-width: 760px) {
 
     .card__category,
+    /* Datos de proyectos destacados */
     .preview__category,
     .preview__year {
-        /* Aumento del tamaño de fuente en pantallas pequeñas - Equivale al aumento de fuente en botones */
+        /* Aumento equivalente al aumento de fuente en botones */
         font-size: 0.8em;
     }
 }
@@ -453,10 +465,11 @@ body {
             - projects__preview (contenedor de los proyectos destacados)
             - preview (estilos generales para cada proyecto)
             - preview__data (contenedor de los datos de cada proyecto)
+                - preview__category
+                - preview__year
             - preview__h2 (estilos para el título de cada proyecto)
             - preview__btn (estilos para el botón de ver cada proyecto)
             - preview--disabled (estilo para javascript para proyectos que quedan detrás de otros)
-            - preview--opacity (estilo inicial para javascript -al hacer scroll aparecen los proyectos-)
 */
 .projects {
     background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
@@ -489,7 +502,6 @@ body {
 .preview {
     width: clamp(300px, 60vw, 1000px);
     min-height: clamp(300px, 30vw, 600px);
-    /* background-color: var(--grey-color); */
     background-image: url(../assets/imagen-de-prueba.jpg);
     background-size: cover;
     background-position: center;
@@ -503,10 +515,6 @@ body {
 
     position: sticky;
     top: 30vh;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
 
     color: var(--white-color);
 
@@ -524,7 +532,6 @@ body {
 }
 
 .preview:nth-child(1) {
-    /* Cambio en el punto de sticky para que no se solapen completamente entre sí */
     background-image: url(../assets/hecansa-index.jpg);
 }
 
@@ -554,6 +561,9 @@ body {
 .preview__year {
     background-color: var(--white-color);
     color: var(--secondary-color);
+    font-size: var(--btn-main-size);
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-btn);
 }
 
 .preview__h2 {
@@ -577,12 +587,6 @@ body {
     filter: blur(2px) brightness(0.9);
 }
 
-.preview--opacity {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
 @media (max-width: 485px) {
     .preview:nth-child(odd) {
         margin: 0;
@@ -603,7 +607,6 @@ body {
 
 @media (min-width: 2400px) {
     .projects__preview {
-        /* Aumento de espacio entre proyectos en pantallas grandes */
         gap: 12rem;
     }
 
@@ -626,12 +629,12 @@ body {
 }
 
 /* ---- Sección de contacto ----
-        Descripción: Estilos para la sección de contacto (se repite en about.html como CTA para ver proyectos).
+        Descripción: Estilos para la sección de contacto.
         Estructura:
-            - paper__wrapper (para recortar la imagen que salga del degradado de la sección de proyectos)
+            - paper__wrapper (recorta la imagen que salga del contenedor de la sección de proyectos)
             - paper (estilos generales para la sección de contacto)
             - paper__picture 
-            - paper__picture img (estilos para la imagen de contacto)
+            - paper__picture img (estilos para la imagen de papel)
             - paper__btn
 */
 .paper__wrapper {
@@ -699,10 +702,12 @@ body {
         Descripción: Estilos para el footer.
         Estructura:
             - footer
-            - footer__info (contenedor redes sociales, menú y datos de contacto)
-                - footer__socials (contenedor de las redes sociales)
-                    - social (estilos para los iconos de las redes sociales)
-                - footer__menu 
+            - footer__info (contenedor de redes sociales, menú y datos de contacto)
+                - footer__socials (contenedor de redes sociales)
+                    - social (estilos para los iconos de cada red social)
+                - footer__menu (estilos para el menú del footer)
+                    - footer__menu li
+                        - footer__menu li a
                 - footer__contact
             - footer__title (estilos para el título y derechos de autor del footer)
                 - footer__h2
@@ -810,11 +815,13 @@ body {
 /* FIN DE ESTILOS PARA INDEX.HTML */
 
 
+
 /* INICIO DE ESTILOS PARA ABOUT.HTML */
+
 /* ---- Banner inicial ----
         Descripción: Estilos para el banner inicial de la página.
         Estructura:
-            - banner--change-background (modificador para cambiar la imagen de fondo del banner)
+            - banner--about (modificador para cambiar la imagen de fondo del banner)
 */
 .banner--about {
     background-image: url('../assets/about.jpg');
@@ -826,17 +833,17 @@ body {
     justify-content: center;
     align-items: center;
 
-    position: relative;
     /* Para colocar la animación de texto con respecto al banner */
+    position: relative;
 }
 
 /* ---- Sección de estudios ----
         Descripción: Estilos para la sección de estudios.
         Estructura:
-            - info (comparte estilos con la sección de servicios de index.html)
-            - info__p
-            - info__logos (contenedor de los logos de las instituciones educativas)
-            - info__logo
+            - info (contenedor general de la sección de estudios)
+                - info__p
+                - info__logos (contenedor de los logos de las instituciones educativas)
+                - info__logo
 */
 .info {
     gap: 4rem;
@@ -871,15 +878,15 @@ body {
 /* ---- Sección de experiencia laboral ----
         Descripción: Estilos para la sección de experiencia laboral.
         Estructura:
-            - experience
-            - experience__h2 (comparte estilos con projects__h2 de index.html)
+            - experience (contenedor general)
+            - experience__h2
             - experience__container (contenedor de los bloques de experiencia)
-            - experience__info (estilos generales para cada bloque de experiencia)
-            - experience__h3
-            - experience__span (descripción de cada experiencia laboral)
-            - experience__clients (lista de clientes)
-            - CTA para ver proyectos
-                - .paper__btn--izq (modificador para el botón en la imagen del papel -estilos originales en la sección de proyectos de index.html-)
+                - experience__info (estilos generales para cada bloque de experiencia)
+                    - experience__h3
+                    - experience__span
+                    - experience__clients
+            - Call to action para ver proyectos
+                - .paper__btn--izq (modificador para el botón en la imagen del papel -estilos originales en la línea 626-)
             
 */
 .experience {
@@ -979,6 +986,8 @@ body {
 
 /* ---- Banner inicial ----
         Descripción: Estilos para el banner inicial de la página.
+        Estructura:
+            - banner--background (modificador para cambiar el fondo del banner)
 */
 .banner--background {
     background-color: var(--primary-color);
@@ -989,17 +998,17 @@ body {
 /* ---- Sección de servicios ----
         Descripción: Estilos para la sección explicativa de los servicios ofrecidos.
         Estructura:
-            - services (comparte estilos con la sección de estudios de about.html)
             - services--secondary (modificador para alinear el contenido a la izquierda y aumentar el padding)
-            - services__item (estilos generales para cada servicio)
-            - services__picture (contenedor de la imagen de cada servicio)
-            - services__img (estilos para la imagen de cada servicio)
-            - services__includeds (estilos para la lista de categorías de cada servicio)
-                - includeds__item (estilos para cada categoría de servicio)
+                - services__item (estilos generales para cada servicio)
+                    - services__h2 (estilos para el título de cada servicio)
+                    - services__picture (contenedor de la imagen de cada servicio)
+                    - services__img (estilos para la imagen de cada servicio)
+                    - services__includeds (estilos para la lista de categorías de cada servicio)
+                        - includeds__item (estilos para cada categoría de servicio)
 */
 
 .services--secondary {
-    /* Edita el estilo compartido en el index.html */
+    /* Edita el estilo compartido en la línea 384 */
     gap: clamp(4rem, 8vw, 10rem);
     align-items: start;
     padding: 8rem clamp(4rem, 10vw, 6rem);
@@ -1032,7 +1041,6 @@ body {
 }
 
 .services__includeds {
-    /* Lista de categorías */
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1053,31 +1061,30 @@ body {
 
 @media (max-width: 768px) {
     .services--secondary {
-        /* Reducción de padding en pantallas pequeñas */
         padding: 3rem;
     }
 
     .includeds__item {
-        /* Aumento del tamaño de fuente en pantallas pequeñas - Equivale al aumento de fuente en botones */
+        /* Aumento del tamaño de fuente equivale al aumento de fuente en botones */
         font-size: 0.8em;
     }
 }
 
 @media (min-width: 1500px) {
     .services--secondary {
-        /* Padding y espaciado aumentado en pantallas grandes */
         padding: 12rem;
         gap: 15rem;
     }
 }
 
 /* ---- Sección de contacto ----
-        Descripción: Estilos para el CTA de contacto al final de la página.
+        Descripción: Estilos para el call to action de contacto al final de la página.
         Estructura:
-            - banner--contact (modificador para el banner de contacto -se repite en about.html como CTA para contactar-)
+            - banner--contact (modificador para el banner de contacto)
             - banner__h2
             - banner__p 
-            - btn--secondary (modificador para el botón del CTA de contacto -estilos originales en la sección de proyectos de index.html-)
+            - banner__container (contenedor de los botones del call to action de contacto)
+                - btn--secondary (modificador para botones)
 */
 .banner--contact {
     background-image: none;
@@ -1147,8 +1154,10 @@ body {
         Descripción: Estilos para formulario de contacto.
         Estructura:
             - contact (contenedor general de la sección de contacto)
-            - contact__introduction (estilos para el texto de introducción a la sección de contacto)
+            - contact__introduction (estilos para el texto de introducción al formulario)
             - contact__form (estilos para el formulario de contacto)
+                - contact__input (campos del formulario)
+                - contact__textarea (campo de texto del formulario)
             - contact__btn (estilos para el botón del formulario de contacto)
 */
 .contact {
@@ -1209,7 +1218,7 @@ body {
         Descripción: Estilos para el mensaje de confirmación al enviar el formulario de contacto.
         Estructura:
             - confirmation (contenedor general de la caja de confirmación)
-            - confirmation__message (estilos para el mensaje de confirmación)
+            - confirmation__message (caja de confirmación)
             - confirmation__btn (estilos para el botón de cerrar la caja de confirmación)
             - confirmation--active 
 */
@@ -1288,7 +1297,6 @@ body {
     border-radius: var(--border-radius-elementos);
 }
 
-
 /* FIN DE ESTILOS PARA CONTACT.HTML */
 
 
@@ -1299,12 +1307,16 @@ body {
 /* ---- Banner inicial ----
         Descripción: Estilos para el banner de introducción de cada proyecto.
         Estructura:
-            - banner-- (modificador para el banner de cada proyecto, con la imagen de fondo correspondiente)
-            - banner__tags (contenedor de los tags de cada proyecto)
-            - banner__tags li (estilos para cada tag de cada proyecto)
+            - banner-- (modificador para el banner de cada proyecto)
+                - banner--hecansa
+                - banner--telde
+                - banner--flor
+                - banner--tagora
+            - banner__tags (contenedor de los tags –datos– de cada proyecto)
+            - banner__tag (estilos para cada tag)
 */
 .banner--hecansa {
-    /* Banner para el proyecto Hecansa */
+    /* Imagen para el proyecto Hecansa */
     background-image: url(../assets/branding-index.jpg);
 
     display: flex;
@@ -1314,7 +1326,7 @@ body {
 }
 
 .banner--telde {
-    /* Banner para el proyecto Telde */
+    /* Imagen para el proyecto Telde */
     background-image: url(../assets/telde-index.jpg);
 
     display: flex;
@@ -1324,7 +1336,7 @@ body {
 }
 
 .banner--flor {
-    /* Banner para el proyecto Flor de Luna */
+    /* Imagen para el proyecto Flor de Luna */
     background-image: url(../assets/flor-index.jpg);
 
     display: flex;
@@ -1334,7 +1346,7 @@ body {
 }
 
 .banner--tagora {
-    /* Banner para el proyecto Tagora */
+    /* Imagen para el proyecto Tagora */
     background-image: url(../assets/tagora/caja-envio.jpg);
 
     display: flex;
@@ -1371,7 +1383,6 @@ body {
 
 @media (max-width: 768px) {
     .banner__tags {
-        /* Menor padding en la lista de categorías del banner de cada proyecto */
         padding: 0 4rem 8rem;
     }
 
@@ -1384,8 +1395,8 @@ body {
         Descripción: Descripción de cada proyecto.
         Estructura:
             - info--project (modificador para la descripción de cada proyecto)
-                - info__p--project (modificador para el párrafo de la descripción de cada proyecto)
-                - info__p--author (modificador para el autor, si se incluye en la descripción de cada proyecto)
+                - info__p--project (modificador para la descripción de cada proyecto)
+                - info__p--author (modificador para el autor, si se incluye en las descripciones)
 */
 .info--project {
     gap: 1.5rem;
@@ -1405,7 +1416,6 @@ body {
 
 @media (min-width: 2000px) {
     .info--project {
-        /* Aumento del gap y padding entre los párrafos de la descripción en pantallas grandes */
         gap: 3rem;
         padding: 14rem 6rem;
     }
@@ -1415,9 +1425,10 @@ body {
 /* ---- Galería ----
         Descripción: Estilos para la galería de cada proyecto.
         Estructura:
-            - .gallery (contenedor general de la galería de cada proyecto)
-            - gallery__item (estilos generales para los contenedores de cada imagen)
-            - gallery__item img (estilos para las imágenes de cada proyecto)
+            - gallery (contenedor general de la galería de cada proyecto)
+                - gallery__item (estilos generales para los contenedores de cada imagen)
+                    - gallery__item img (estilos para las imágenes)
+                    - gallery__video (estilos para vídeos, si se incluye en algún proyecto)
 */
 .gallery {
     width: 100%;
@@ -1471,7 +1482,6 @@ body {
     }
 
     .info__p--project {
-        /* Ancho mayor para el párrafo de la descripción en pantallas pequeñas */
         width: 85%;
     }
 
@@ -1490,7 +1500,6 @@ body {
 
 @media (min-width: 1700px) {
     .gallery {
-        /* Aumento del gap entre las imágenes de la galería en pantallas grandes */
         gap: 4rem;
         padding: 0 16rem 8rem;
     }
@@ -1498,7 +1507,6 @@ body {
 
 @media (min-width: 2500px) {
     .gallery__item {
-        /* Aumento del tamaño de las imágenes de la galería en pantallas grandes */
         height: clamp(400px, 70vw, 1100px);
     }
 }
@@ -1507,11 +1515,11 @@ body {
         Descripción: Caja de luz para mostrar las imágenes de la galería de cada proyecto.
         Estructura:
             - lightbox (contenedor general - ocupa toda la pantalla)
-            - lightbox div (contenedor de la imagen y el botón de cierre del lightbox)
-            - lightbox__close (estilos para el botón de cierre del lightbox)
-            - lightbox__item (estilos para el contenedor de la imagen –picture– del lightbox)
-            - lightbox__img (estilos para la imagen –img– del lightbox)
-                - lightbox--active (clase para la activación del lightbox con JavaScript)
+                - lightbox div (contenedor de la imagen y el botón de cierre del lightbox)
+                    - lightbox__close (estilos para el botón de cierre del lightbox)
+                    - lightbox__item (estilos para el contenedor de la imagen –picture–)
+                        - lightbox__img (estilos para la imagen –img–)
+            - lightbox--active (clase para la activación del lightbox con JavaScript)
 */
 .lightbox {
     position: fixed;
@@ -1551,7 +1559,8 @@ body {
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.lightbox__close:hover {
+.lightbox__close:hover,
+.lightbox__close:active {
     transform: scale(0.95);
     color: var(--primary-color);
 }
@@ -1564,7 +1573,6 @@ body {
 
 .lightbox__img {
     width: 100%;
-    /* Este height da problemas */
     height: auto;
     object-fit: contain;
     border-radius: var(--border-radius-elementos);
@@ -1600,7 +1608,6 @@ body {
 
 @media (max-width: 600px) {
     .external-link {
-        /* Menor margen para el botón de enlace externo en pantallas pequeñas */
         margin: 0 0 4rem;
     }
 }
@@ -1608,11 +1615,22 @@ body {
 /* FIN DE ESTILOS PARA CADA PROYECTO */
 
 
+
+
 /* INICIO DE ESTILOS PARA PROJECTS.HTML */
+
 /* ---- Galería de proyectos ----
         Descripción: Estilos para la galería general de proyectos.
         Estructura:
-            - 
+            - projects--gallery (modificador para la sección general de galería de proyectos)
+                - projects__h2 (estilos para el título de la sección)
+                - projects__container (contenedor de los proyectos)
+                    - project (estilos generales para cada proyecto)
+                        - project__title
+                        - project__description
+                        - project__btn
+                        - project__picture (contenedor de la imagen de cada proyecto)
+                            - project__img (estilos para cada imagen)
 */
 .projects--gallery {
     background: white;
@@ -1677,8 +1695,6 @@ body {
 }
 
 .project__picture {
-    background-color: #0b9501;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -1709,12 +1725,10 @@ body {
 
 @media (min-width: 2000px) {
     .projects__container {
-        /* Aumento del gap entre los proyectos en pantallas grandes */
         gap: 5rem;
     }
 
     .project {
-        /* Aumento del tamaño de los proyectos en pantallas grandes */
         height: clamp(500px, 50vw, 900px);
         padding: 4rem;
         gap: 2rem;
