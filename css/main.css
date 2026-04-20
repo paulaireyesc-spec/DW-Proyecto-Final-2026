@@ -448,10 +448,7 @@ body {
 
 @media (max-width: 760px) {
 
-    .card__category,
-    /* Datos de proyectos destacados */
-    .preview__category,
-    .preview__year {
+    .card__category {
         /* Aumento equivalente al aumento de fuente en botones */
         font-size: 0.8em;
     }
@@ -502,7 +499,6 @@ body {
 .preview {
     width: clamp(300px, 60vw, 1000px);
     min-height: clamp(300px, 30vw, 600px);
-    background-image: url(../assets/imagen-de-prueba.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -602,6 +598,11 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.4rem;
+    }
+    .preview__category,
+    .preview__year {
+        /* Aumento equivalente al aumento de fuente en botones */
+        font-size: 0.8em;
     }
 }
 

@@ -81,7 +81,7 @@ function updatePreview() {
       }
 }
 
-if (previews) { // Si existen los contenedores de proyectos
+if (previews.length) { // Si existen los contenedores de proyectos
 
       window.addEventListener("scroll", updatePreview); // Se actualiza el contenedor según el scroll
       window.addEventListener("resize", updatePreview); // Actualiza el contenedor según el cambio de tamaño de la ventana
@@ -181,15 +181,20 @@ function lightboxHandler(e) {
       }); // Añade la clase activo al contenedor del lightbox para mostrarlo
 }
 
+// Función para cerrar el lightbox
+function lightboxCloseHandler() {
+      lightboxContainer.classList.remove('lightbox--active'); // Elimina la clase activo del contenedor del lightbox para ocultarlo
+}
 
-if (projectsItem) {
+
+if (projectsItem.length) {
       projectsItem.forEach((item) => {
             item.addEventListener('click', lightboxHandler); // Por cada imagen, escucha el evento click y ejecuta la función lightboxHandler
       });
 }
 
 if (lightboxClose) {
-      lightboxClose.addEventListener('click', () => lightboxContainer.classList.remove('lightbox--active')); // Escucha el evento click en el botón de cerrar y ejecuta la función lightboxCloseHandler
+      lightboxClose.addEventListener('click', lightboxCloseHandler); // Escucha el evento click en el botón de cerrar y ejecuta la función lightboxCloseHandler
 }
 
 
