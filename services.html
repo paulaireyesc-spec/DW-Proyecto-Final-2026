@@ -80,8 +80,8 @@ Estructura general:
         <nav class="header__nav header__nav--mobile">
             <ul class="header__menu header__menu--mobile">
                 <li class="header__menu-icon">
-                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación en pantallas móviles"
-                        aria-label="Botón para abrir el menú de navegación en pantallas móviles">
+                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación"
+                        aria-label="Botón para abrir el menú de navegación">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
@@ -112,7 +112,7 @@ Estructura general:
         -->
         <section class="banner banner--background">
             <!-- Título de la sección - Efecto scroll -->
-            <h1 class="banner__h1">servicios</h1>
+            <h1 class="banner__h1">Servicios</h1>
             <div class="movement">
                 <!-- Animación de texto -->
                 <div class="movement__container">
@@ -162,6 +162,7 @@ Estructura general:
         <!-- Sección de servicios
         Descripción: Sección que describe los servicios ofrecidos, con una imagen representativa y un texto explicativo.
         Estructura:
+        - Bloques de servicio (en todos):
             - Título del servicio.
             - Texto descriptivo del servicio.
             - Lista de lo que incluye el servicio.
@@ -170,7 +171,7 @@ Estructura general:
         <div class="services services--secondary">
             <!-- Item de servicio - Servicio 1 -->
             <article class="services__item">
-                <h2 class="services__h2">diseño gráfico</h2>
+                <h2 class="services__h2">Diseño gráfico</h2>
                 <p class="services__p">Mis servicios de diseño gráfico son muy amplios:
                     desde productos gráficos simples, como publicaciones para redes sociales, hasta la generación de
                     billboards, banners y otros muchos materiales.
@@ -178,9 +179,9 @@ Estructura general:
                     Además, cuento con paquetes de branding disponibles para creación y/o rediseño de marcas
                     corporativas.</p>
                 <ul class="services__includeds">
-                    <li class="includeds__item">branding</li>
-                    <li class="includeds__item">diseño de productos</li>
-                    <li class="includeds__item">publicaciones en redes sociales</li>
+                    <li class="includeds__item">Branding</li>
+                    <li class="includeds__item">Diseño de productos</li>
+                    <li class="includeds__item">Redes sociales</li>
                 </ul>
                 <picture class="services__picture">
                     <source srcset="./assets/branding-index.webp" type="image/webp">
@@ -192,15 +193,15 @@ Estructura general:
 
             <!-- Item de servicio - Servicio 2 -->
             <article class="services__item">
-                <h2 class="services__h2">diseño editorial</h2>
+                <h2 class="services__h2">Diseño editorial</h2>
                 <p class="services__p">Realizo maquetaciones para diversos proyectos editoriales: fanzines, folletos,
                     libros, tesis, etc. A través de herramientas como Adobe InDesign, puedo crear también material
                     editorial inteactivo de calidad, llamativo y preparado para el mundo digital. No dejes que tus
                     materiales queden obsoletos. ¡Trabajemxs juntxs para elevarlos al nivel de tu marca!</p>
                 <ul class="services__includeds">
-                    <li class="includeds__item">libros</li>
-                    <li class="includeds__item">folletos</li>
-                    <li class="includeds__item">fanzines</li>
+                    <li class="includeds__item">Libros</li>
+                    <li class="includeds__item">Folletos</li>
+                    <li class="includeds__item">Fanzines</li>
                 </ul>
                 <picture class="services__picture">
                     <source srcset="./assets/diseno-editorial-index.webp" type="image/webp">
@@ -212,14 +213,15 @@ Estructura general:
 
             <!-- Item de servicio - Servicio 3 -->
             <article class="services__item">
-                <h2 class="services__h2">diseño web</h2>
+                <h2 class="services__h2">Diseño web</h2>
                 <p class="services__p">Como diseñadora web, ofrezco servicios de frontend con HTML, CSS y JavaScript,
                     así como la creación de webs con el CMS Wordpress. Creo experiencias digitales atractivas y
                     funcionales, que cumplen objetivos y derivan en una mejor experiencia para el cliente y su usuario.
                     Si quieres elevar tu próximo proyecto al siguiente nivel, ¡no dudes en trabajar juntxs!</p>
                 <ul class="services__includeds">
-                    <li class="includeds__item">páginas web</li>
-                    <li class="includeds__item">conceptualización ux|ui</li>
+                    <li class="includeds__item">Páginas web</li>
+                    <li class="includeds__item">UX</li>
+                    <li class="includeds__item">UI</li>
                 </ul>
                 <picture class="services__picture">
                     <source srcset="./assets/diseno-web-index.webp" type="image/webp">
@@ -232,7 +234,7 @@ Estructura general:
         <!-- Fin de la sección de servicios -->
 
         <!-- Banner de contacto
-         Descripción: Sección de contacto.
+         Descripción: Call to action para contactar y/o ver proyectos.
          Estructura:
             - Título de la sección.
             - Texto descriptivo.
@@ -240,7 +242,7 @@ Estructura general:
         -->
         <section class="banner banner--contact">
             <h2 class="banner__h2">¿Buscas elevar tu marca?</h2>
-            <span class="banner__p">¡contáctame y hagamos que tu negocio destaque!</span>
+            <span class="banner__p">¡Contáctame y hagamos que tu negocio destaque!</span>
             <div class="banner__container">
                 <a href="contact.html" class="banner__btn btn btn--secondary" title="Enlace a la página de contacto"
                     aria-label="Enlace a la página de contacto">Contacta</a>
@@ -346,7 +348,7 @@ Estructura general:
             <!-- Fin de la redes sociales -->
 
             <!-- Menú del footer -->
-            <div class="footer__nav">
+            <nav class="footer__nav">
                 <ul class="footer__menu">
                     <li><a href="about.html" title="Enlace a la página sobre mí"
                             aria-label="Enlace a la página sobre mí">Sobre mí</a></li>
@@ -357,7 +359,7 @@ Estructura general:
                     <li><a href="contact.html" title="Enlace a la página de contacto"
                             aria-label="Enlace a la página de contacto">Contacto</a></li>
                 </ul>
-            </div>
+            </nav>
             <!-- Fin del menú del footer -->
 
             <!-- Contacto -->
@@ -367,7 +369,7 @@ Estructura general:
 
         <div class="footer__title">
             <!-- Copyright y título -->
-            <span class="footer__span">©2025 Pau Reyes. Todos los derechos reservados.</span>
+            <span class="footer__span">©2026 Pau Reyes. Todos los derechos reservados.</span>
             <h2 class="footer__h2">Pau Reyes</h2>
         </div>
         <!-- Fin del copyright y título -->

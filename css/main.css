@@ -844,11 +844,19 @@ body {
     background-repeat: no-repeat;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 
     /* Para colocar la animación de texto con respecto al banner */
     position: relative;
+}
+
+.banner__title {
+    color: var(--white-color);
+    font-size: 1em;
+    font-weight: 300;
 }
 
 /* ---- Sección de estudios ----
