@@ -108,6 +108,7 @@ body {
 
 .header__logo {
     width: 20%;
+    height: auto;
 }
 
 .header__menu {
