@@ -99,7 +99,7 @@ if (previews.length) { // Si existen los contenedores de proyectos
             - Función
             - Evento de click para mostrar/ocultar el menú desplegable
 */
-const menuIcon = document.querySelector('.header__menu-icon'); // Selecciona el icono del menú
+const menuIcon = document.querySelector('.menu-icon__btn'); // Selecciona el icono del menú
 const mobileMenu = document.querySelector('.header__menu--mobile'); // Selecciona el menú para móviles
 const header = document.querySelector('.header'); // Selecciona el encabezado
 

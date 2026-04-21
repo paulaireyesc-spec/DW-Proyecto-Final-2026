@@ -137,9 +137,10 @@ body {
             - header__nav--mobile
                 - header__menu--mobile
                     - header__menu-icon
-                        - header__menu--mobile ul
-                            - menu-icon__item
-                            - menu-icon__item a
+                        - menu-icon__btn
+                    - header__menu--mobile ul
+                        - menu-icon__item
+                        - menu-icon__item a
 
 */
 .header__nav--mobile {
@@ -164,6 +165,11 @@ body {
 
     .header__menu--mobile {
         list-style: none;
+    }
+
+    .menu-icon__btn {
+        background: none;
+        cursor: pointer;
     }
 
     .header__menu-icon svg {
