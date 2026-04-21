@@ -19,7 +19,7 @@ Estructura general:
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Pau Reyes - Contacto</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" type="image/png" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg-xml" href="assets/favicon.svg">
     <link rel='stylesheet' type='text/css' href='css/main.css'>
     <script src='js/main.js' defer></script>
 
@@ -32,14 +32,14 @@ Estructura general:
     <!-- Primary Meta Tags -->
     <meta name="title" content="Pau Reyes - Contacto">
     <meta name="description"
-        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, gráficos y digitales, que destaquen y cumplan con sus objetivos.">
+        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, físicos y digitales, que destaquen y cumplan con sus objetivos.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://paureyes.com/contact.html">
     <meta property="og:title" content="Pau Reyes - Contacto">
     <meta property="og:description"
-        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, gráficos y digitales, que destaquen y cumplan con sus objetivos.">
+        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, físicos y digitales, que destaquen y cumplan con sus objetivos.">
     <meta property="og:image" content="./assets/about.jpg">
 
     <!-- X (Twitter) -->
@@ -47,7 +47,7 @@ Estructura general:
     <meta property="twitter:url" content="https://paureyes.com/contact.html">
     <meta property="twitter:title" content="Pau Reyes - Contacto">
     <meta property="twitter:description"
-        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, gráficos y digitales, que destaquen y cumplan con sus objetivos.">
+        content="Si te interesa elevar tu proyecto al siguiente nivel, no dudes en contactarme. Estoy aquí para crear marcas y productos, físicos y digitales, que destaquen y cumplan con sus objetivos.">
     <meta property="twitter:image" content="./assets/about.jpg">
 
 </head>
@@ -81,8 +81,8 @@ Estructura general:
         <nav class="header__nav header__nav--mobile">
             <ul class="header__menu header__menu--mobile">
                 <li class="header__menu-icon">
-                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación en pantallas móviles"
-                        aria-label="Botón para abrir el menú de navegación en pantallas móviles">
+                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación"
+                        aria-label="Botón para abrir el menú de navegación">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
@@ -113,7 +113,7 @@ Estructura general:
         -->
         <section class="banner banner--background">
             <!-- Título de la sección - Efecto scroll -->
-            <h1 class="banner__h1">contacto</h1>
+            <h1 class="banner__h1">Contacto</h1>
             <div class="movement">
                 <!-- Animación de texto -->
                 <div class="movement__container">
@@ -198,8 +198,8 @@ Estructura general:
         <!-- Caja de confirmación de envío del formulario
          Descripción: Confirmación de que el formulario se ha enviado correctamente.
          Estructura:
-            - Texto de introducción
-            - Formulario de contacto
+            - Texto vacío (se rellenará con JavaScript al enviar el formulario)
+            - Botón para cerrar la caja de confirmación
         -->
         <div class="confirmation">
             <div class="confirmation__message">
@@ -223,18 +223,23 @@ Estructura general:
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
+                    <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
                     <span class="movement__span">-</span>
                     <span class="movement__span">Puedes encontrarme aquí</span>
@@ -344,7 +349,7 @@ Estructura general:
             <!-- Fin de la redes sociales -->
 
             <!-- Menú del footer -->
-            <div class="footer__nav">
+            <nav class="footer__nav">
                 <ul class="footer__menu">
                     <li><a href="about.html" title="Enlace a la página sobre mí"
                             aria-label="Enlace a la página sobre mí">Sobre mí</a></li>
@@ -355,7 +360,7 @@ Estructura general:
                     <li><a href="contact.html" title="Enlace a la página de contacto"
                             aria-label="Enlace a la página de contacto">Contacto</a></li>
                 </ul>
-            </div>
+            </nav>
             <!-- Fin del menú del footer -->
 
             <!-- Contacto -->
@@ -365,7 +370,7 @@ Estructura general:
 
         <div class="footer__title">
             <!-- Copyright y título -->
-            <span class="footer__span">©2025 Pau Reyes. Todos los derechos reservados.</span>
+            <span class="footer__span">©2026 Pau Reyes. Todos los derechos reservados.</span>
             <h2 class="footer__h2">Pau Reyes</h2>
         </div>
         <!-- Fin del copyright y título -->
