@@ -283,6 +283,7 @@ body {
     color: var(--white-color);
     font-size: clamp(10em, 25vw, 25em);
     text-align: center;
+    transition: transform 0.2s ease-out;
 }
 
 @media (min-width: 1720px) {
@@ -848,7 +849,6 @@ body {
 
 .footer__contact {
     font-size: 0.9em;
-    display: flex;
     gap: 1rem;
     word-spacing: 0.5rem;
     text-align: center;
@@ -1145,6 +1145,12 @@ body {
     text-decoration: none;
 }
 
+@media (max-width: 650px) {
+    .services__item {
+        width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
     .includeds__item {
         /* Aumento del tamaño de fuente equivale al aumento de fuente en botones */
@@ -1200,6 +1206,7 @@ body {
 
 .banner__container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2rem;
