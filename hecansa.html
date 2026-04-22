@@ -102,7 +102,7 @@ Estructura general:
         </nav>
     </header>
     <!-- Fin del header -->
-     
+
     <main>
         <!-- Banner inicial
          Descripción: Sección introductoria al proyecto.
@@ -244,7 +244,13 @@ Estructura general:
                     <source class="lightbox__source" srcset="#" type="image/webp">
                     <img class="lightbox__img" src="#" alt="Imagen del proyecto Hecansa ampliada">
                 </picture>
-                <button title="Cerrar ampliación de imagen" class="lightbox__close">&times;</button>
+                <button title="Cerrar ampliación de imagen" class="lightbox__close">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
             </div>
         </div>
         <!-- Fin del lightbox -->

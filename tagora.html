@@ -9,7 +9,7 @@ Estructura general:
 - Menú para móvil
 - Banner inicial
 - Descripción del proyecto
-- Galería de imágenes y video del proyecto
+- Galería del proyecto
 - Lightbox para ampliar las imágenes de la galería
 - Footer
 -->
@@ -81,8 +81,8 @@ Estructura general:
         <nav class="header__nav header__nav--mobile">
             <ul class="header__menu header__menu--mobile">
                 <li class="header__menu-icon">
-                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación en pantallas móviles"
-                        aria-label="Botón para abrir el menú de navegación en pantallas móviles">
+                    <button class="menu-icon__btn" title="Botón para abrir el menú de navegación"
+                        aria-label="Botón para abrir el menú de navegación">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
@@ -115,10 +115,10 @@ Estructura general:
             <!-- Etiquetas de categoría y año -->
             <ul class="banner__tags">
                 <li class="banner__tag">2023</li>
-                <li class="banner__tag">branding</li>
-                <li class="banner__tag">diseño gráfico</li>
-                <li class="banner__tag">diseño editorial</li>
-                <li class="banner__tag">diseño ui/ux</li>
+                <li class="banner__tag">Branding</li>
+                <li class="banner__tag">Diseño gráfico</li>
+                <li class="banner__tag">Diseño editorial</li>
+                <li class="banner__tag">Diseño UI/UX</li>
             </ul>
             <div class="movement">
                 <!-- Animación de texto -->
@@ -172,7 +172,7 @@ Estructura general:
             - Texto
         -->
         <div class="info info--project">
-            <p class="info__p info__p--project">Tagora, corazón local, es una marca destinada a dar forma y voz al
+            <p class="info__p info__p--project">"Tagora, corazón local", es una marca destinada a dar forma y voz al
                 comercio local canario.</p>
 
 
@@ -192,7 +192,6 @@ Estructura general:
          Descripción: Pequeña galería con imágenes del proyecto.
          Estructura:
             - Imágenes
-            - Video
         -->
         <div class="gallery">
             <picture class="gallery__item">
@@ -231,19 +230,22 @@ Estructura general:
         <!-- Lightbox para galería
          Descripción: Caja de luz que amplía las imágenes de la galería al hacer clic en ellas.
          Estructura:
-            - lightbox (contenedor principal)
-                - lightbox__item (imagen ampliada)
-                    - lightbox__source (fuente de la imagen en formato webp)
-                    - lightbox__img (imagen en formato jpg)
-                - lightbox__close (botón para cerrar el lightbox)
+             - Contenedor del lightbox
+                - Imagen ampliada
+                - Botón de cierre
         -->
         <div class="lightbox">
             <div>
                 <picture class="lightbox__item">
                     <source class="lightbox__source" srcset="#" type="image/webp">
-                    <img class="lightbox__img" src="#" alt="Imagen del proyecto Tagora seleccionada ampliada">
+                    <img class="lightbox__img" src="#" alt="Imagen del proyecto Tagora ampliada">
                 </picture>
-                <button title="Cerrar ampliación de imagen" class="lightbox__close">&times;</button>
+                <button title="Cerrar ampliación de imagen" class="lightbox__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
             </div>
         </div>
         <!-- Fin del lightbox -->
@@ -344,7 +346,7 @@ Estructura general:
             <!-- Fin de la redes sociales -->
 
             <!-- Menú del footer -->
-            <div class="footer__nav">
+            <nav class="footer__nav">
                 <ul class="footer__menu">
                     <li><a href="about.html" title="Enlace a la página sobre mí"
                             aria-label="Enlace a la página sobre mí">Sobre mí</a></li>
@@ -355,7 +357,7 @@ Estructura general:
                     <li><a href="contact.html" title="Enlace a la página de contacto"
                             aria-label="Enlace a la página de contacto">Contacto</a></li>
                 </ul>
-            </div>
+            </nav>
             <!-- Fin del menú del footer -->
 
             <!-- Contacto -->
@@ -365,7 +367,7 @@ Estructura general:
 
         <div class="footer__title">
             <!-- Copyright y título -->
-            <span class="footer__span">©2025 Pau Reyes. Todos los derechos reservados.</span>
+            <span class="footer__span">©2026 Pau Reyes. Todos los derechos reservados.</span>
             <h2 class="footer__h2">Pau Reyes</h2>
         </div>
         <!-- Fin del copyright y título -->
