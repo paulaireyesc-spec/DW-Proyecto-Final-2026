@@ -6,8 +6,9 @@
             - Interacción A: Desvanecimiento del título de sección de proyectos (index.html)
             - Interacción B: Estilos para la galería sticky de proyectos (index.html)
             - Interacción C: Menú móvil (mostrar/ocultar menú desplegable en toda la web)
-            - Interacción D: Scroll del título de los banner (en todas las páginas con banner inicial)
+            - Interacción D: Scroll del título de los banner (en todas las páginas con banner inicial con h1)
             - Interacción E: Lightbox para las imágenes de los proyectos (en la página de cada proyecto)
+            - Interacción F: Mensaje de confirmación de envío de formulario (contact.html)
 ---------------------------------------------------------------- */
 
 
@@ -30,7 +31,7 @@ function opacityHandler() {
       // Obtenemos la posición del último proyecto
       const posicionScroll = projectPreview[3].getBoundingClientRect();
 
-      // Si su distancia con el borde superior de la ventana es menor al 100%
+      // Si su distancia con el borde superior de la ventana es menor al 10%
       if (posicionScroll.top < window.innerHeight * 0.1) {
             projectTitle.style.opacity = '0'; // Desvanecemos el título
       } else {
@@ -81,7 +82,7 @@ function updatePreview() {
       }
 }
 
-if (previews.length) { // Si existen los contenedores de proyectos
+if (previews.length) { // Si existen los contenedores de proyectos (no está vacío)
 
       window.addEventListener("scroll", updatePreview); // Se actualiza el contenedor según el scroll
       window.addEventListener("resize", updatePreview); // Actualiza el contenedor según el cambio de tamaño de la ventana
@@ -97,7 +98,7 @@ if (previews.length) { // Si existen los contenedores de proyectos
       Estructura:
             - Constantes
             - Función
-            - Evento de click para mostrar/ocultar el menú desplegable
+            - Evento de click
 */
 const menuIcon = document.querySelector('.menu-icon__btn'); // Selecciona el icono del menú
 const mobileMenu = document.querySelector('.header__menu--mobile'); // Selecciona el menú para móviles
@@ -134,17 +135,17 @@ menuIcon.addEventListener('click', mobileMenuHandler);
       ACLARACIÓN: Ayuda de ChatGPT para resolver cómo definir la dirección del scroll.
 */
 const bannerTitle = document.querySelector('.banner__h1'); // Seleccionamos el título del banner
-let lastScroll = window.scrollY; // Registramos la posición del scroll
+let lastScroll = window.scrollY; // Registramos la posición del scroll inicial
 
 // Función para mover el título del banner según la dirección del scroll
 function bannerScrollHandler() {
       const currentScroll = window.scrollY; // Actualizamos la posición del scroll cada vez que se ejectuta la función
 
-      // Si el nuevo scroll es mayor que el anterior = scroll hacia abajo
+      // Si el nuevo scroll es mayor que el anterior => scroll hacia abajo
       if (currentScroll > lastScroll) {
             bannerTitle.style.transform = `translateX(${currentScroll * -0.5}px)`; // Mueve el título hacia la izquierda
 
-            // Si el nuevo scroll es menor que el anterior = scroll hacia arriba
+            // Si el nuevo scroll es menor que el anterior => scroll hacia arriba
       } else if (currentScroll < lastScroll) {
             bannerTitle.style.transform = `translateX(${-currentScroll * 0.5}px)`; // Mueve el título hacia la derecha
       }
@@ -152,7 +153,7 @@ function bannerScrollHandler() {
       lastScroll = currentScroll; // Actualizamos la posición del scroll para la siguiente vez que se ejecute la función
 }
 
-if (bannerTitle) {
+if (bannerTitle) { // Si existe el título del banner
       window.addEventListener('scroll', bannerScrollHandler); // Escuchamos el evento de scroll para mover el título del banner
 }
 
@@ -162,7 +163,7 @@ if (bannerTitle) {
       Descripción: Al hacer click en una imagen de la galería, se muestra un lightbox con la imagen ampliada.
       Estructura:
             - Constantes
-            - Función
+            - Funciones
             - Evento de click
 */
 
@@ -178,7 +179,7 @@ function lightboxHandler(e) {
       lightboxImage.src = e.target.src; // Cambia la imagen del lightbox a la de la imagen que se ha clicado
       requestAnimationFrame(() => {
             lightboxContainer.classList.add('lightbox--active');
-      }); // Añade la clase activo al contenedor del lightbox para mostrarlo
+      }); // Añade la clase activo al contenedor del lightbox para mostrarlo, ayudando a evitar cambios bruscos al cargar la imagen
 }
 
 // Función para cerrar el lightbox
@@ -187,13 +188,13 @@ function lightboxCloseHandler() {
 }
 
 
-if (projectsItem.length) {
+if (projectsItem.length) { // Si existen los picture de la galería (no está vacío)
       projectsItem.forEach((item) => {
             item.addEventListener('click', lightboxHandler); // Por cada imagen, escucha el evento click y ejecuta la función lightboxHandler
       });
 }
 
-if (lightboxClose) {
+if (lightboxClose) { // Si existe el botón de cerrar del lightbox
       lightboxClose.addEventListener('click', lightboxCloseHandler); // Escucha el evento click en el botón de cerrar y ejecuta la función lightboxCloseHandler
 }
 
@@ -205,7 +206,7 @@ if (lightboxClose) {
       Descripción: Al enviar el formulario de contacto, se muestra un mensaje de confirmación con el nombre del usuario.
       Estructura:
             - Constantes
-            - Función
+            - Funciones
             - Evento de submit y click
 */
 
@@ -218,7 +219,7 @@ const nombreInput = document.getElementById('name'); // Selecciona el input del 
 // Función para mostrar el mensaje de confirmación al enviar el formulario
 function formSubmitHandler(e) {
       e.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-      dialogMessage.textContent = `¡Gracias, ${nombreInput.value}! Nos pondremos en contacto contigo lo antes posible.`; // Cambia el texto del mensaje de confirmación para incluir el nombre del usuario
+      dialogMessage.textContent = `¡Gracias, ${nombreInput.value}! Me pondré en contacto contigo lo antes posible.`; // Cambia el texto del mensaje de confirmación para incluir el nombre del usuario
       confirmationDialog.classList.add('confirmation--active'); // Añade la clase activo al contenedor del mensaje de confirmación para mostrarlo
 }
 
@@ -227,7 +228,7 @@ function closeDialogHandler() {
       confirmationDialog.classList.remove('confirmation--active'); // Elimina la clase activo del contenedor del mensaje de confirmación para ocultarlo
 }
 
-if (form) {
+if (form) { // Si existe el formulario de contacto
       form.addEventListener('submit', formSubmitHandler); // Escucha el evento submit en el formulario y ejecuta la función formSubmitHandler
       closeDialog.addEventListener('click', closeDialogHandler); // Escucha el evento click en el botón de cerrar y ejecuta la función closeDialogHandler
 }
