@@ -132,7 +132,8 @@ body {
     font-size: 0.8em;
 }
 
-.header__menu li:hover {
+.header__menu li:hover,
+.header__menu li:active {
     transform: scale(0.95);
 }
 
@@ -223,14 +224,13 @@ body {
     }
 
     .menu-icon__item a {
-        color: var(--secondary-color);
-        text-decoration: none;
+        transition: font-weight 0.3s ease;
     }
 
 
-    .menu-icon__item a:hover {
-        transform: translateX(2%);
-        color: var(--white-color);
+    .menu-icon__item a:hover,
+    .menu-icon__item a:active {
+        font-weight: 700;
     }
 
     .header__menu--active ul {
@@ -623,7 +623,8 @@ body {
     border: 1px solid var(--white-color);
 }
 
-.preview__btn:hover {
+.preview__btn:hover,
+.preview__btn:active {
     background-color: var(--white-color);
     color: var(--secondary-color);
     border: 1px solid var(--white-color);
@@ -815,7 +816,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-.social:hover {
+.social:hover,
+.social:active {
     transform: scale(1.1);
 }
 
@@ -833,7 +835,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-.footer__menu li:hover {
+.footer__menu li:hover,
+.footer__menu li:active {
     transform: scale(0.95);
 }
 
@@ -1071,9 +1074,13 @@ body {
 */
 .banner--background {
     background-color: var(--primary-color);
-    position: relative;
+
     /* Para colocar la animación de texto con respecto al banner */
+    position: relative;
 }
+
+/* Fin del banner inicial */
+
 
 /* ---- Sección de servicios ----
         Descripción: Estilos para la sección explicativa de los servicios ofrecidos.
@@ -1088,10 +1095,9 @@ body {
 */
 
 .services--secondary {
-    /* Edita el estilo compartido en la línea 384 */
+    /* Edita el estilo compartido en la sección de servicios de index.html */
     gap: clamp(4rem, 8vw, 10rem);
     align-items: start;
-    padding: 8rem clamp(4rem, 10vw, 6rem);
 }
 
 .services__item {
@@ -1099,6 +1105,8 @@ body {
     flex-direction: column;
     align-items: start;
     gap: 1rem;
+    margin: 0 auto;
+    width: clamp(50%, 60vw, 80%);
 }
 
 .services--secondary .services__h2 {
@@ -1108,9 +1116,8 @@ body {
 .services__picture {
     width: 100%;
     height: clamp(300px, 25vw, 500px);
-    background-color: var(--grey-color);
     border-radius: var(--border-radius-elementos);
-    overflow: hidden;
+    margin: 1rem 0 0;
 }
 
 .services__img {
@@ -1136,23 +1143,12 @@ body {
     padding: 0.5rem 2rem;
     border-radius: var(--border-radius-btn);
     text-decoration: none;
-    transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
-    .services--secondary {
-        padding: 3rem;
-    }
-
     .includeds__item {
         /* Aumento del tamaño de fuente equivale al aumento de fuente en botones */
         font-size: 0.8em;
-    }
-}
-
-@media (min-width: 1500px) {
-    .services--secondary {
-        padding: 12rem;
     }
 }
 
@@ -1161,11 +1157,14 @@ body {
         padding: 1rem 3.5rem;
     }
 
-    .services__item {
-        width: 85%;
-        margin: 0 auto;
+    .services__picture {
+        /* Aumento de altura para pantallas grandes */
+        height: clamp(500px, 35vw, 900px);
     }
 }
+
+/* Fin de la sección de servicios */
+
 
 /* ---- Sección de contacto ----
         Descripción: Estilos para el call to action de contacto al final de la página.
@@ -1173,11 +1172,10 @@ body {
             - banner--contact (modificador para el banner de contacto)
             - banner__h2
             - banner__p 
-            - banner__container (contenedor de los botones del call to action de contacto)
+            - banner__container (contenedor de los botones del call to action)
                 - btn--secondary (modificador para botones)
 */
 .banner--contact {
-    background-image: none;
     background: linear-gradient(to bottom, var(--primary-color), var(--complementary-color));
     padding: 8rem 2rem;
 
@@ -1234,6 +1232,8 @@ body {
     border: 1px solid var(--white-color);
 }
 
+/* Fin de la sección de contacto */
+
 /* FIN DE ESTILOS PARA SERVICES.HTML */
 
 
@@ -1241,14 +1241,14 @@ body {
 /* INICIO DE ESTILOS PARA CONTACT.HTML */
 
 /* ---- Sección de contacto ----
-        Descripción: Estilos para formulario de contacto.
+        Descripción: Estilos para el formulario de contacto.
         Estructura:
             - contact (contenedor general de la sección de contacto)
             - contact__introduction (estilos para el texto de introducción al formulario)
             - contact__form (estilos para el formulario de contacto)
                 - contact__input (campos del formulario)
                 - contact__textarea (campo de texto del formulario)
-            - contact__btn (estilos para el botón del formulario de contacto)
+            - contact__btn (estilos para el botón del formulario)
 */
 .contact {
     width: 100%;
@@ -1280,7 +1280,13 @@ body {
     margin: 0 0 1.5rem 0;
 }
 
+.contact__input:focus,
+.contact__textarea:focus {
+    outline: 2px solid var(--secondary-color);
+}
+
 .contact__textarea {
+    /* Evitamos que el usuario pueda redimensionar el textarea horizontalmente */
     resize: vertical;
 }
 
@@ -1291,6 +1297,7 @@ body {
 
 @media (max-width: 800px) {
     .contact {
+        /* Cambio de disposición */
         flex-direction: column;
         padding: 6rem 4rem;
     }
@@ -1304,13 +1311,16 @@ body {
     }
 }
 
+/* Fin del formulario */
+
+
 /* ---- Caja de confirmación ----
         Descripción: Estilos para el mensaje de confirmación al enviar el formulario de contacto.
         Estructura:
             - confirmation (contenedor general de la caja de confirmación)
             - confirmation__message (caja de confirmación)
             - confirmation__btn (estilos para el botón de cerrar la caja de confirmación)
-            - confirmation--active 
+            - confirmation--active (estilos para activar la caja de confirmación en JavaScript)
 */
 .confirmation {
     width: 100vw;
@@ -1323,6 +1333,7 @@ body {
     left: 0;
     z-index: 7;
 
+    /* Oculta el contenedor */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1360,6 +1371,8 @@ body {
     pointer-events: auto;
 }
 
+/* Fin de la caja de confirmación */
+
 
 /* ---- Mapa ----
         Descripción: Estilos para el mapa con la ubicación de la empresa.
@@ -1376,8 +1389,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    position: relative;
     /* Para colocar la animación de texto con respecto al mapa */
+    position: relative;
 }
 
 .map iframe {
@@ -1386,6 +1399,8 @@ body {
     margin: 5rem 0 0;
     border-radius: var(--border-radius-elementos);
 }
+
+/* Fin del mapa */
 
 /* FIN DE ESTILOS PARA CONTACT.HTML */
 
@@ -1412,6 +1427,7 @@ body {
     display: flex;
     align-items: end;
 
+    /* Para que la animación de texto de coloqué en función del banner */
     position: relative;
 }
 
@@ -1422,6 +1438,7 @@ body {
     display: flex;
     align-items: end;
 
+    /* Para que la animación de texto de coloqué en función del banner */
     position: relative;
 }
 
@@ -1432,6 +1449,7 @@ body {
     display: flex;
     align-items: end;
 
+    /* Para que la animación de texto de coloqué en función del banner */
     position: relative;
 }
 
@@ -1442,6 +1460,7 @@ body {
     display: flex;
     align-items: end;
 
+    /* Para que la animación de texto de coloqué en función del banner */
     position: relative;
 }
 
@@ -1481,12 +1500,15 @@ body {
     }
 }
 
+/* Fin del banner inicial */
+
+
 /* ---- Descripción ----
         Descripción: Descripción de cada proyecto.
         Estructura:
-            - info--project (modificador para la descripción de cada proyecto)
+            - info--project (modificador para el contenedor de la descripción de cada proyecto)
                 - info__p--project (modificador para la descripción de cada proyecto)
-                - info__p--author (modificador para el autor, si se incluye en las descripciones)
+                - info__author (estilos para los datos de colaboradores, si se incluye en las descripciones)
 */
 .info--project {
     gap: 1.5rem;
@@ -1511,6 +1533,8 @@ body {
     }
 }
 
+/* Fin de la descripción */
+
 
 /* ---- Galería ----
         Descripción: Estilos para la galería de cada proyecto.
@@ -1530,7 +1554,6 @@ body {
 }
 
 .gallery__item {
-    background-color: var(--grey-color);
     aspect-ratio: 1 / 1;
     width: 100%;
     height: clamp(300px, 40vw, 800px);
@@ -1601,12 +1624,16 @@ body {
     }
 }
 
+/* Fin de la galería */
+
+
 /* ---- Lightbox ----
         Descripción: Caja de luz para mostrar las imágenes de la galería de cada proyecto.
         Estructura:
             - lightbox (contenedor general - ocupa toda la pantalla)
                 - lightbox div (contenedor de la imagen y el botón de cierre del lightbox)
                     - lightbox__close (estilos para el botón de cierre del lightbox)
+                        - lightbox__close svg (estilos para el icono de cierre del lightbox)
                     - lightbox__item (estilos para el contenedor de la imagen –picture–)
                         - lightbox__img (estilos para la imagen –img–)
             - lightbox--active (clase para la activación del lightbox con JavaScript)
@@ -1624,6 +1651,7 @@ body {
     align-items: center;
     z-index: 10;
 
+    /* Oculta el contenedor */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1675,7 +1703,7 @@ body {
 .lightbox__img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: var(--border-radius-elementos);
 }
 
@@ -1695,6 +1723,9 @@ body {
     }
 }
 
+/* Fin del lightbox */
+
+
 /* ---- Botón de enlace externo ----
         Descripción: Estilos para el botón de enlace externo a la página de cada proyecto (si es que el proyecto lo tiene). 
         Estructura:
@@ -1712,6 +1743,8 @@ body {
         margin: 0 0 4rem;
     }
 }
+
+/* Fin del botón de enlace externo */
 
 /* FIN DE ESTILOS PARA CADA PROYECTO */
 
@@ -1736,7 +1769,6 @@ body {
 .projects--gallery {
     background: white;
 
-    width: 100%;
     min-height: 50vh;
     padding: 10rem 2rem;
     justify-content: start;
@@ -1768,6 +1800,7 @@ body {
     gap: 1rem;
 
     position: relative;
+    /* Para que los elementos internos se posicionen con respecto a este contenedor */
     color: var(--white-color);
 }
 
@@ -1830,10 +1863,13 @@ body {
     }
 
     .project {
+        /* Aumento de tamaño en pantallas grandes */
         height: clamp(500px, 50vw, 900px);
         padding: 4rem;
         gap: 2rem;
     }
 }
+
+/* Fin de la galería */
 
 /* FIN DE ESTILOS PARA PROJECTS.HTML */
