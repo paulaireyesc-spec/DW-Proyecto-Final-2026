@@ -1,3 +1,6 @@
+// Función autoejecutable (IIFE) para privatizar el código
+(function() {
+
 /* ---------------------------------------------------------------- 
       main.js
       Descripción: Este archivo contiene el código JavaScript para las interacciones de la página web completa.
@@ -233,3 +236,5 @@ if (form) { // Si existe el formulario de contacto
       closeDialog.addEventListener('click', closeDialogHandler); // Escucha el evento click en el botón de cerrar y ejecuta la función closeDialogHandler
 }
 
+
+})();
