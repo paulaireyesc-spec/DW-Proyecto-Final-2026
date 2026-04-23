@@ -112,7 +112,7 @@ body {
 }
 
 .header__logo {
-    width: 20%;
+    width: clamp(3rem, 25%, 4.5rem);
     height: auto;
 }
 
@@ -246,10 +246,6 @@ body {
     /* Ajustes en pantalla grande */
     .header {
         padding: 4rem 2rem;
-    }
-
-    .header__logo {
-        width: 25%;
     }
 }
 
